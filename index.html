@@ -1,1 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Keyz – Keycap Fidget App for iOS. Tap keycaps, hear satisfying click sounds, and customize your board.">
+<title>Keyz — Keycap Fidget App</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #faf8f5; color: #2c2a27; line-height: 1.7; }
+  a { color: #ff7252; text-decoration: none; }
 
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 32px; border-bottom: 1px solid #ece9e3; max-width: 760px; margin: 0 auto; }
+  .logo { font-weight: 700; font-size: 17px; }
+  .nav-links { display: flex; gap: 24px; font-size: 14px; }
+
+  .hero { text-align: center; padding: 72px 24px 48px; max-width: 760px; margin: 0 auto; }
+  .app-icon { font-size: 80px; display: block; margin-bottom: 20px; line-height: 1; }
+  .hero h1 { font-size: 52px; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 6px; }
+  .tagline { font-size: 18px; color: #999; margin-bottom: 36px; }
+
+  .lang { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; }
+  .lang button { background: none; border: 1.5px solid #ddd; border-radius: 8px; padding: 5px 14px; cursor: pointer; font-size: 14px; font-family: inherit; color: #888; }
+  .lang button.active { border-color: #ff7252; color: #ff7252; font-weight: 600; }
+
+  .desc-section { display: none; margin-bottom: 36px; }
+  .desc-section.active { display: block; }
+  .desc-section p { font-size: 17px; color: #666; max-width: 440px; margin: 0 auto; }
+
+  .dl-btn { display: inline-block; background: #2c2a27; color: #fff !important; padding: 14px 28px; border-radius: 14px; font-size: 15px; font-weight: 600; }
+  .dl-btn:hover { background: #444; }
+
+  .features { display: flex; gap: 24px; max-width: 760px; margin: 0 auto; padding: 0 24px 64px; flex-wrap: wrap; justify-content: center; }
+  .feature { text-align: center; flex: 1; min-width: 160px; max-width: 220px; }
+  .feature .fi { font-size: 36px; margin-bottom: 10px; }
+  .feature h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .feature p { font-size: 13px; color: #999; }
+
+  hr { border: none; border-top: 1px solid #ece9e3; }
+
+  .privacy-wrap { background: #fff; border-top: 1px solid #ece9e3; }
+  .privacy { max-width: 760px; margin: 0 auto; padding: 56px 32px; }
+  .privacy-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .privacy-meta { color: #aaa; font-size: 13px; margin-bottom: 32px; }
+  h2 { font-size: 16px; font-weight: 600; margin: 30px 0 8px; }
+  p { margin-bottom: 12px; }
+  ul { padding-left: 20px; margin-bottom: 12px; }
+  li { margin-bottom: 5px; font-size: 15px; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .footer { text-align: center; padding: 32px 24px; font-size: 12px; color: #bbb; border-top: 1px solid #ece9e3; line-height: 2; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">⌨️ Keyz</span>
+  <div class="nav-links">
+    <a href="#privacy">Privacy Policy</a>
+    <a href="mailto:keyz.app@icloud.com">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="app-icon">⌨️</span>
+  <h1>Keyz</h1>
+  <p class="tagline">Keycap Fidget App</p>
+
+  <div class="lang">
+    <button class="active" onclick="showDesc('en', this)">English</button>
+    <button onclick="showDesc('ko', this)">한국어</button>
+    <button onclick="showDesc('ja', this)">日本語</button>
+  </div>
+
+  <div id="desc-en" class="desc-section active">
+    <p>Tap keycaps. Hear the click. The mechanical keyboard experience that fits in your pocket.</p>
+  </div>
+  <div id="desc-ko" class="desc-section">
+    <p>키캡을 탭하세요. 타건음을 들어보세요. 주머니 속 기계식 키보드 피젯 경험.</p>
+  </div>
+  <div id="desc-ja" class="desc-section">
+    <p>キーキャップをタップ。タイピング音を楽しんで。ポケットの中のメカニカルキーボード体験。</p>
+  </div>
+
+  <a href="https://apps.apple.com/app/id6770513549" class="dl-btn" target="_blank">Download on the App Store</a>
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="feature">
+    <div class="fi">🎵</div>
+    <h3>Click Sounds</h3>
+    <p>3 mechanical keyboard sound packs</p>
+  </div>
+  <div class="feature">
+    <div class="fi">🎨</div>
+    <h3>Customize</h3>
+    <p>Labels, images, and keycap skins</p>
+  </div>
+  <div class="feature">
+    <div class="fi">✨</div>
+    <h3>Secret Skins</h3>
+    <p>Unlock by reaching tap milestones</p>
+  </div>
+</div>
+
+<!-- PRIVACY POLICY -->
+<div class="privacy-wrap" id="privacy">
+  <div class="privacy">
+    <div class="privacy-title">Privacy Policy</div>
+    <div class="privacy-meta">개인정보처리방침 · プライバシーポリシー</div>
+
+    <div class="lang">
+      <button class="active" onclick="showPrivacy('en', this)">English</button>
+      <button onclick="showPrivacy('ko', this)">한국어</button>
+      <button onclick="showPrivacy('ja', this)">日本語</button>
+    </div>
+
+    <!-- ENGLISH -->
+    <div id="pp-en" class="section active">
+      <p><strong>Effective Date:</strong> May 15, 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 15, 2026</p>
+      <h2>1. Introduction</h2>
+      <p>Keyz ("we", "our", or "the app") is a keycap fidget app developed by an independent developer. This Privacy Policy explains how we handle information when you use Keyz.</p>
+      <h2>2. Information We Collect</h2>
+      <p>Keyz is designed to work without requiring any personal information. However, the following data may be processed:</p>
+      <ul>
+        <li><strong>Click count and settings</strong> — stored locally on your device only (UserDefaults). We never access or transmit this data.</li>
+        <li><strong>Custom keycap images</strong> — stored locally on your device (app sandbox). Never uploaded to any server.</li>
+        <li><strong>Ad data (non-paying users)</strong> — Google AdMob may collect advertising identifiers and usage data to serve ads. See <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</li>
+        <li><strong>Purchase information</strong> — In-app purchases (Lifetime Pass) are handled entirely by Apple's App Store. We do not receive your payment details.</li>
+      </ul>
+      <h2>3. How We Use Information</h2>
+      <p>We do not collect, store, or process any personal data on our servers. All user data remains on your device.</p>
+      <h2>4. Third-Party Services</h2>
+      <ul>
+        <li><strong>Google AdMob</strong> — used to display rewarded ads for non-paying users. <a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob Privacy</a></li>
+        <li><strong>Apple StoreKit</strong> — handles all in-app purchases securely.</li>
+      </ul>
+      <h2>5. Children's Privacy</h2>
+      <p>Keyz does not knowingly collect personal information from children under 13. The app contains advertising (Google AdMob); parental guidance is recommended for younger users.</p>
+      <h2>6. Data Retention</h2>
+      <p>All app data (settings, click count, labels) is stored locally on your device and can be deleted by uninstalling the app.</p>
+      <h2>7. Your Rights</h2>
+      <p>Since we store no personal data on our servers, there is nothing to access, correct, or delete on our end. To remove all data, simply delete the app from your device.</p>
+      <h2>8. Changes to This Policy</h2>
+      <p>We may update this policy. The latest version will always be available at this URL. Continued use of the app after changes constitutes acceptance.</p>
+      <h2>9. Contact</h2>
+      <p>Questions? Email us at <a href="mailto:keyz.app@icloud.com">keyz.app@icloud.com</a></p>
+    </div>
+
+    <!-- KOREAN -->
+    <div id="pp-ko" class="section">
+      <p><strong>시행일:</strong> 2026년 5월 15일</p>
+      <h2>1. 개요</h2>
+      <p>Keyz(이하 "앱")는 개인 개발자가 제작한 키캡 피젯 앱입니다. 본 개인정보처리방침은 앱 사용 시 정보 처리 방식을 안내합니다.</p>
+      <h2>2. 수집하는 정보</h2>
+      <ul>
+        <li><strong>클릭 카운터 및 설정값</strong> — 기기 내 로컬 저장(UserDefaults). 외부 전송 없음.</li>
+        <li><strong>키캡 커스텀 이미지</strong> — 기기 내 저장(앱 샌드박스). 서버 업로드 없음.</li>
+        <li><strong>광고 데이터 (무료 이용자)</strong> — Google AdMob이 광고 ID 및 사용 데이터를 수집할 수 있습니다. <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보처리방침</a> 참조.</li>
+        <li><strong>구매 정보</strong> — 평생 패스 인앱 구매는 Apple App Store가 처리하며, 결제 정보는 앱에 전달되지 않습니다.</li>
+      </ul>
+      <h2>3. 정보 이용 목적</h2>
+      <p>당사는 개인 데이터를 서버에 수집·저장·처리하지 않습니다. 모든 사용자 데이터는 기기 내에만 저장됩니다.</p>
+      <h2>4. 제3자 서비스</h2>
+      <ul>
+        <li><strong>Google AdMob</strong> — 무료 이용자 대상 보상형 광고 제공.</li>
+        <li><strong>Apple StoreKit</strong> — 인앱 구매 보안 처리.</li>
+      </ul>
+      <h2>5. 아동 개인정보</h2>
+      <p>만 14세 미만 아동의 개인정보를 의도적으로 수집하지 않습니다. 광고가 포함되어 있으므로 어린 사용자는 보호자 지도 하에 이용을 권장합니다.</p>
+      <h2>6. 데이터 보관</h2>
+      <p>모든 앱 데이터는 기기 내 저장되며, 앱 삭제 시 함께 제거됩니다.</p>
+      <h2>7. 이용자 권리</h2>
+      <p>서버에 개인정보를 저장하지 않으므로 별도 요청 없이 앱 삭제만으로 모든 데이터를 제거할 수 있습니다.</p>
+      <h2>8. 방침 변경</h2>
+      <p>방침 변경 시 본 페이지에 최신 버전이 게시됩니다.</p>
+      <h2>9. 문의</h2>
+      <p><a href="mailto:keyz.app@icloud.com">keyz.app@icloud.com</a></p>
+    </div>
+
+    <!-- JAPANESE -->
+    <div id="pp-ja" class="section">
+      <p><strong>施行日:</strong> 2026年5月15日</p>
+      <h2>1. はじめに</h2>
+      <p>Keyz（以下「本アプリ」）は個人開発者が制作したキーキャップフィジェットアプリです。本プライバシーポリシーでは、アプリ使用時の情報取り扱い方針を説明します。</p>
+      <h2>2. 収集する情報</h2>
+      <ul>
+        <li><strong>クリック数・設定</strong> — デバイス内にローカル保存（UserDefaults）。外部送信なし。</li>
+        <li><strong>カスタム画像</strong> — デバイス内に保存（アプリサンドボックス）。サーバーアップロードなし。</li>
+        <li><strong>広告データ（無料ユーザー）</strong> — Google AdMobが広告IDや利用データを収集する場合があります。</li>
+        <li><strong>購入情報</strong> — アプリ内課金はApple App Storeが処理します。</li>
+      </ul>
+      <h2>3. 第三者サービス</h2>
+      <ul>
+        <li><strong>Google AdMob</strong> — 無料ユーザー向けリワード広告。</li>
+        <li><strong>Apple StoreKit</strong> — アプリ内課金の安全な処理。</li>
+      </ul>
+      <h2>4. お問い合わせ</h2>
+      <p><a href="mailto:keyz.app@icloud.com">keyz.app@icloud.com</a></p>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <p>키즈(Keyz) &nbsp;·&nbsp; 대표 심광섭 &nbsp;·&nbsp; 사업자등록번호 669-21-02587 &nbsp;·&nbsp; 통신판매업 2026-경기하남-1034</p>
+  <p><a href="mailto:keyz.app@icloud.com">keyz.app@icloud.com</a> &nbsp;·&nbsp; © 2026 키즈(Keyz). All rights reserved.</p>
+</div>
+
+<script>
+function showDesc(lang, btn) {
+  document.querySelectorAll('.desc-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('desc-' + lang).classList.add('active');
+  btn.closest('.lang').querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function showPrivacy(lang, btn) {
+  document.querySelectorAll('#privacy .section').forEach(s => s.classList.remove('active'));
+  document.getElementById('pp-' + lang).classList.add('active');
+  btn.closest('.lang').querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
