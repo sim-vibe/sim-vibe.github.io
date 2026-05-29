@@ -1,24 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script>
-    (function () {
-      if (location.pathname !== '/' && location.pathname !== '/index.html') return;
-      try { if (localStorage.getItem('keyz_lang')) return; } catch (e) {}
-      var l = (navigator.language || '').toLowerCase();
-      if (l.indexOf('ko') === 0) location.replace('/ko/');
-      else if (l.indexOf('ja') === 0) location.replace('/ja/');
-    })();
-  </script>
 
-  <title>Keyz — Keycap Fidget App for iPhone</title>
-  <meta name="description" content="Keyz is a keycap fidget app for iPhone — tap satisfying mechanical keyboard keycaps, hear the click, customize skins, and unlock secret designs. Free on the App Store." />
-  <meta name="keywords" content="keycap fidget app, mechanical keyboard app, fidget app, keyboard ASMR, clicky keyboard, keycap simulator, iPhone fidget, Keyz" />
+  <title>Keyz — 아이폰용 키캡 피젯 앱</title>
+  <meta name="description" content="Keyz는 아이폰용 키캡 피젯 앱입니다. 기계식 키보드 키캡을 탭하고, 클릭음을 듣고, 스킨을 커스터마이즈하고, 숨겨진 디자인을 잠금 해제하세요. App Store에서 무료." />
+  <meta name="keywords" content="키캡 피젯 앱, 기계식 키보드 앱, 피젯 앱, 키보드 ASMR, 클릭 키보드, 키캡 시뮬레이터, 아이폰 피젯, Keyz, 키즈" />
   <meta name="author" content="Keyz" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://keyz.dev/" />
+  <link rel="canonical" href="https://keyz.dev/ko/" />
   <meta name="theme-color" content="#f5f0ea" />
 
   <!-- hreflang alternates -->
@@ -36,21 +27,21 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Keyz" />
-  <meta property="og:title" content="Keyz — Keycap Fidget App for iPhone" />
-  <meta property="og:description" content="Tap satisfying mechanical keyboard keycaps, hear the click, and customize your own. Free on the App Store." />
-  <meta property="og:url" content="https://keyz.dev/" />
-  <meta property="og:image" content="https://keyz.dev/og-image.png" />
+  <meta property="og:title" content="Keyz — 아이폰용 키캡 피젯 앱" />
+  <meta property="og:description" content="기계식 키보드 키캡을 탭하고 클릭음을 들으며, 나만의 키캡으로 커스터마이즈하세요. App Store에서 무료." />
+  <meta property="og:url" content="https://keyz.dev/ko/" />
+  <meta property="og:image" content="https://keyz.dev/og-image-ko.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:locale:alternate" content="ko_KR" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:locale:alternate" content="ja_JP" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Keyz — Keycap Fidget App for iPhone" />
-  <meta name="twitter:description" content="Tap satisfying mechanical keyboard keycaps, hear the click, and customize your own. Free on the App Store." />
-  <meta name="twitter:image" content="https://keyz.dev/og-image.png" />
+  <meta name="twitter:title" content="Keyz — 아이폰용 키캡 피젯 앱" />
+  <meta name="twitter:description" content="기계식 키보드 키캡을 탭하고 클릭음을 들으며, 나만의 키캡으로 커스터마이즈하세요. App Store에서 무료." />
+  <meta name="twitter:image" content="https://keyz.dev/og-image-ko.png" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -60,11 +51,11 @@
     "name": "Keyz",
     "operatingSystem": "iOS 17.0+",
     "applicationCategory": "EntertainmentApplication",
-    "description": "Keyz is a keycap fidget app for iPhone — tap satisfying mechanical keyboard keycaps, hear the click, customize skins, and unlock secret designs.",
-    "url": "https://keyz.dev/",
+    "description": "Keyz는 아이폰용 키캡 피젯 앱입니다. 기계식 키보드 키캡을 탭하고, 클릭음을 듣고, 스킨을 커스터마이즈하고, 숨겨진 디자인을 잠금 해제하세요.",
+    "url": "https://keyz.dev/ko/",
     "downloadUrl": "https://apps.apple.com/app/id6770513549",
-    "image": "https://keyz.dev/og-image.png",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "image": "https://keyz.dev/og-image-ko.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
     "author": { "@type": "Organization", "name": "Keyz", "url": "https://keyz.dev/" }
   }
   </script>
@@ -80,26 +71,26 @@
   <div class="nav-logo">Keyz</div>
   <a class="nav-dl" href="https://apps.apple.com/app/id6770513549">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-    Download
+    다운로드
   </a>
 </nav>
 
 <section class="hero">
   <h1 class="app-name">Keyz</h1>
-  <p class="hero-tagline">Tap keycaps. Hear the click.<br>The mechanical keyboard experience<br>that fits in your pocket.</p>
+  <p class="hero-tagline">키캡을 탭하세요. 클릭음을 들으세요.<br>주머니 속에 들어오는<br>기계식 키보드 경험.</p>
   <a class="hero-cta" href="https://apps.apple.com/app/id6770513549">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-    Download on the App Store
+    App Store에서 다운로드
   </a>
-  <p class="hero-note">Free · iOS 17.0+</p>
+  <p class="hero-note">무료 · iOS 17.0+</p>
   <div class="phone-wrap">
-    <div class="phone-shell" id="phone" role="button" tabindex="0" aria-label="Tap to toggle LED mode">
-      <img class="screen-base" src="/app-screenshot.webp" alt="Keyz app showing K E Y Z keycaps" />
-      <img class="screen-led" src="/app-screenshot-led.webp" alt="Keyz app in LED mode" />
+    <div class="phone-shell" id="phone" role="button" tabindex="0" aria-label="탭하여 LED 모드 전환">
+      <img class="screen-base" src="/app-screenshot.webp" alt="K E Y Z 키캡을 보여주는 Keyz 앱" />
+      <img class="screen-led" src="/app-screenshot-led.webp" alt="LED 모드의 Keyz 앱" />
     </div>
     <div class="tap-hint" id="tapHint">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5V5.5a1.5 1.5 0 0 1 3 0v5"/><path d="M12 10V4.5a1.5 1.5 0 0 1 3 0V10"/><path d="M15 9.5V6a1.5 1.5 0 0 1 3 0v7a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3.5l-2-3.5a1.5 1.5 0 0 1 2.6-1.5L6 12"/><path d="M9 10.5v-1a1.5 1.5 0 0 0-3 0v3"/></svg>
-      Tap to turn on the lights
+      탭해서 불을 켜보세요
     </div>
   </div>
 </section>
@@ -107,23 +98,23 @@
 <div class="divider"></div>
 
 <section class="features">
-  <p class="eyebrow reveal">Features</p>
-  <h2 class="section-title reveal">Everything you need<br>to fidget.</h2>
+  <p class="eyebrow reveal">기능</p>
+  <h2 class="section-title reveal">피젯에 필요한<br>모든 것.</h2>
   <div class="feat-grid">
     <div class="feat reveal">
       <div class="feat-icon">🎵</div>
-      <h3>Click Sounds</h3>
-      <p>3 mechanical keyboard sound packs. From tactile clacks to smooth linears — find your perfect click.</p>
+      <h3>클릭 사운드</h3>
+      <p>3가지 기계식 키보드 사운드 팩. 타격감 있는 클릭부터 부드러운 리니어까지, 나만의 클릭음을 찾으세요.</p>
     </div>
     <div class="feat reveal">
       <div class="feat-icon">🎨</div>
-      <h3>Customize</h3>
-      <p>Labels, images, and keycap skins. Make every key uniquely yours.</p>
+      <h3>커스터마이즈</h3>
+      <p>라벨, 이미지, 키캡 스킨. 모든 키를 나만의 것으로 만드세요.</p>
     </div>
     <div class="feat reveal">
       <div class="feat-icon">🔓</div>
-      <h3>Secret Skins</h3>
-      <p>Unlock exclusive keycap skins by reaching tap milestones. Keep clicking to discover more.</p>
+      <h3>시크릿 스킨</h3>
+      <p>탭 마일스톤을 달성해 독점 키캡 스킨을 잠금 해제하세요. 계속 클릭하면 더 많은 디자인이 나타납니다.</p>
     </div>
   </div>
 </section>
@@ -132,13 +123,13 @@
 
 <section class="download">
   <div class="dl-card reveal">
-    <h2>Ready to click?</h2>
-    <p>Free to download. Start tapping in seconds.</p>
+    <h2>클릭할 준비 되셨나요?</h2>
+    <p>무료로 다운로드하세요. 몇 초면 탭을 시작할 수 있습니다.</p>
     <a class="dl-btn" href="https://apps.apple.com/app/id6770513549">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      Download on the App Store
+      App Store에서 다운로드
     </a>
-    <p class="dl-note">Free · iOS 17.0+</p>
+    <p class="dl-note">무료 · iOS 17.0+</p>
   </div>
 </section>
 
@@ -146,22 +137,22 @@
   <div class="footer-top">
     <div class="footer-brand">Keyz</div>
     <div class="footer-links">
-      <a href="/privacy.html">Privacy Policy</a>
-      <a href="mailto:support@keyz.dev">Support</a>
+      <a href="/ko/privacy.html">개인정보처리방침</a>
+      <a href="mailto:support@keyz.dev">고객지원</a>
     </div>
   </div>
-  <p class="footer-meta">Keyz · Owner: Gwangseop Shim · Business Registration No. 669-21-02587 · Mail-order Sales License 2026-Gyeonggi Hanam-1034 · support@keyz.dev</p>
-  <p class="footer-copy">© 2026 Keyz. All rights reserved.</p>
+  <p class="footer-meta">키즈(Keyz) · 대표 심광섭 · 사업자등록번호 669-21-02587 · 통신판매업 2026-경기하남-1034 · support@keyz.dev</p>
+  <p class="footer-copy">© 2026 키즈(Keyz). All rights reserved.</p>
   <div class="footer-lang">
     <div class="lang-select">
       <button class="lang-btn" aria-haspopup="true" aria-expanded="false">
         <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 2.5 16 0 18M12 3c-2.5 2.5-2.5 16 0 18"/></svg>
-        <span class="lang-current">English</span>
+        <span class="lang-current">한국어</span>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <ul class="lang-menu" role="listbox">
-        <li><a href="/" hreflang="en" data-lang="en" class="active">English</a></li>
-        <li><a href="/ko/" hreflang="ko" data-lang="ko">한국어</a></li>
+        <li><a href="/" hreflang="en" data-lang="en">English</a></li>
+        <li><a href="/ko/" hreflang="ko" data-lang="ko" class="active">한국어</a></li>
         <li><a href="/ja/" hreflang="ja" data-lang="ja">日本語</a></li>
       </ul>
     </div>
