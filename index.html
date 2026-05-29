@@ -1,228 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Keyz – Keycap Fidget App for iOS. Tap keycaps, hear satisfying click sounds, and customize your board.">
-<title>Keyz — Keycap Fidget App</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #faf8f5; color: #2c2a27; line-height: 1.7; }
-  a { color: #ff7252; text-decoration: none; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyz — Keycap Fidget App</title>
+  <meta name="description" content="Tap keycaps. Hear the click. The mechanical keyboard experience that fits in your pocket." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 32px; border-bottom: 1px solid #ece9e3; max-width: 760px; margin: 0 auto; }
-  .logo { font-weight: 700; font-size: 17px; }
-  .nav-links { display: flex; gap: 24px; font-size: 14px; }
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --border: #222;
+      --text: #f0ece4;
+      --muted: #888;
+      --accent: #d4c5a9;
+      --cta: #f0ece4;
+    }
 
-  .hero { text-align: center; padding: 72px 24px 48px; max-width: 760px; margin: 0 auto; }
-  .app-icon { font-size: 80px; display: block; margin-bottom: 20px; line-height: 1; }
-  .hero h1 { font-size: 52px; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 6px; }
-  .tagline { font-size: 18px; color: #999; margin-bottom: 36px; }
+    html { scroll-behavior: smooth; }
 
-  .lang { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; }
-  .lang button { background: none; border: 1.5px solid #ddd; border-radius: 8px; padding: 5px 14px; cursor: pointer; font-size: 14px; font-family: inherit; color: #888; }
-  .lang button.active { border-color: #ff7252; color: #ff7252; font-weight: 600; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  .desc-section { display: none; margin-bottom: 36px; }
-  .desc-section.active { display: block; }
-  .desc-section p { font-size: 17px; color: #666; max-width: 440px; margin: 0 auto; }
+    /* NAV */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px;
+      background: rgba(10,10,10,0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    #nav.scrolled { border-color: var(--border); }
+    .nav-logo { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 18px;
+      background: var(--cta); color: #0a0a0a;
+      border-radius: 100px; font-size: 0.85rem; font-weight: 500;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+    .nav-cta svg { width: 16px; height: 16px; }
 
-  .dl-btn { display: inline-block; background: #2c2a27; color: #fff !important; padding: 14px 28px; border-radius: 14px; font-size: 15px; font-weight: 600; }
-  .dl-btn:hover { background: #444; }
+    /* HERO */
+    .hero {
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(212,197,169,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 14px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.78rem; color: var(--muted);
+      margin-bottom: 32px;
+      letter-spacing: 0.02em;
+    }
+    .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; display: inline-block; }
+    h1 {
+      font-size: clamp(2.4rem, 8vw, 5rem);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      max-width: 700px;
+      margin-bottom: 24px;
+    }
+    h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--muted);
+      max-width: 440px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 28px;
+      background: var(--cta); color: #0a0a0a;
+      border-radius: 100px; font-size: 0.95rem; font-weight: 500;
+      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary svg { width: 20px; height: 20px; }
+    .hero-mockup {
+      margin-top: 72px;
+      position: relative;
+      display: flex; justify-content: center;
+    }
+    .mockup-phone {
+      width: 220px;
+      height: 440px;
+      background: var(--surface);
+      border-radius: 36px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .mockup-inner {
+      width: 180px; height: 380px;
+      background: linear-gradient(160deg, #1a1a1a 0%, #0f0f0f 100%);
+      border-radius: 28px;
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 8px;
+      padding: 32px 16px 16px;
+      align-content: start;
+    }
+    .key {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; font-weight: 500; color: #888;
+      cursor: pointer; transition: transform 0.08s, box-shadow 0.08s;
+      user-select: none;
+    }
+    .key.cream  { background: #d4c5a9; color: #333; }
+    .key.dark   { background: #2a2a2a; color: #777; border: 1px solid #333; }
+    .key.purple { background: #4a3f6b; color: #c4b5e9; }
+    .key.wide   { grid-column: span 2; border-radius: 8px; }
+    .key:active, .key.pressed { transform: scale(0.9); box-shadow: 0 2px 6px rgba(0,0,0,0.4); }
 
-  .features { display: flex; gap: 24px; max-width: 760px; margin: 0 auto; padding: 0 24px 64px; flex-wrap: wrap; justify-content: center; }
-  .feature { text-align: center; flex: 1; min-width: 160px; max-width: 220px; }
-  .feature .fi { font-size: 36px; margin-bottom: 10px; }
-  .feature h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-  .feature p { font-size: 13px; color: #999; }
+    /* FEATURES */
+    .features {
+      padding: 100px 24px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.78rem; color: var(--muted);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600; letter-spacing: -0.03em;
+      margin-bottom: 64px; max-width: 500px;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2px;
+    }
+    .feature-card {
+      background: var(--surface);
+      padding: 36px 32px;
+      transition: background 0.2s;
+    }
+    .feature-card:first-child { border-radius: 20px 0 0 20px; }
+    .feature-card:last-child  { border-radius: 0 20px 20px 0; }
+    @media(max-width:640px) {
+      .feature-card:first-child { border-radius: 20px 20px 0 0; }
+      .feature-card:last-child  { border-radius: 0 0 20px 20px; }
+    }
+    .feature-card:hover { background: #1a1a1a; }
+    .feature-icon {
+      width: 44px; height: 44px;
+      background: rgba(212,197,169,0.1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 { font-size: 1.05rem; font-weight: 500; margin-bottom: 10px; letter-spacing: -0.01em; }
+    .feature-card p  { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
-  hr { border: none; border-top: 1px solid #ece9e3; }
+    /* DOWNLOAD */
+    .download {
+      padding: 100px 24px;
+      text-align: center;
+    }
+    .download-inner {
+      max-width: 560px; margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 60px 40px;
+    }
+    .download h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 600; letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .download p { color: var(--muted); margin-bottom: 36px; font-size: 0.95rem; }
+    .appstore-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px;
+      background: var(--cta); color: #0a0a0a;
+      border-radius: 100px; font-size: 0.95rem; font-weight: 500;
+      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
+    }
+    .appstore-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .appstore-btn svg { width: 20px; height: 20px; }
+    .free-badge {
+      margin-top: 16px;
+      font-size: 0.8rem; color: var(--muted);
+    }
 
-  .privacy-wrap { background: #fff; border-top: 1px solid #ece9e3; }
-  .privacy { max-width: 760px; margin: 0 auto; padding: 56px 32px; }
-  .privacy-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
-  .privacy-meta { color: #aaa; font-size: 13px; margin-bottom: 32px; }
-  h2 { font-size: 16px; font-weight: 600; margin: 30px 0 8px; }
-  p { margin-bottom: 12px; }
-  ul { padding-left: 20px; margin-bottom: 12px; }
-  li { margin-bottom: 5px; font-size: 15px; }
-  .section { display: none; }
-  .section.active { display: block; }
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 40px 40px;
+      max-width: 900px; margin: 0 auto;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 24px;
+      margin-bottom: 40px;
+    }
+    .footer-brand { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.85rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-bottom {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .footer-info { font-size: 0.78rem; color: #555; line-height: 1.7; }
+    .footer-copy { font-size: 0.78rem; color: #444; margin-top: 8px; }
 
-  .footer { text-align: center; padding: 32px 24px; font-size: 12px; color: #bbb; border-top: 1px solid #ece9e3; line-height: 2; }
-</style>
+    /* FADE IN */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media(max-width:640px) {
+      nav { padding: 16px 20px; }
+      footer { padding: 40px 20px 32px; }
+      .footer-top { flex-direction: column; }
+      .download-inner { padding: 40px 24px; }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <span class="logo">⌨️ Keyz</span>
-  <div class="nav-links">
-    <a href="#privacy">Privacy Policy</a>
-    <a href="mailto:keyz.app@icloud.com">Contact</a>
-  </div>
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">Keyz</div>
+  <a class="nav-cta" href="https://apps.apple.com/app/id6770513549">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    Download
+  </a>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-  <span class="app-icon">⌨️</span>
-  <h1>Keyz</h1>
-  <p class="tagline">Keycap Fidget App</p>
-
-  <div class="lang">
-    <button class="active" onclick="showDesc('en', this)">English</button>
-    <button onclick="showDesc('ko', this)">한국어</button>
-    <button onclick="showDesc('ja', this)">日本語</button>
+<section class="hero">
+  <div class="hero-badge"><span></span> Available on the App Store</div>
+  <h1>Tap keycaps.<br><em>Hear the click.</em></h1>
+  <p class="hero-sub">The mechanical keyboard experience that fits in your pocket.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="https://apps.apple.com/app/id6770513549">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
   </div>
-
-  <div id="desc-en" class="desc-section active">
-    <p>Tap keycaps. Hear the click. The mechanical keyboard experience that fits in your pocket.</p>
+  <div class="hero-mockup">
+    <div class="mockup-phone">
+      <div class="mockup-inner" id="keyGrid">
+        <div class="key cream">Q</div>
+        <div class="key dark">W</div>
+        <div class="key cream">E</div>
+        <div class="key purple">R</div>
+        <div class="key dark">A</div>
+        <div class="key cream">S</div>
+        <div class="key dark">D</div>
+        <div class="key cream">F</div>
+        <div class="key purple">Z</div>
+        <div class="key dark">X</div>
+        <div class="key cream">C</div>
+        <div class="key dark">V</div>
+        <div class="key cream wide">SPACE</div>
+        <div class="key dark">↵</div>
+      </div>
+    </div>
   </div>
-  <div id="desc-ko" class="desc-section">
-    <p>키캡을 탭하세요. 타건음을 들어보세요. 주머니 속 기계식 키보드 피젯 경험.</p>
-  </div>
-  <div id="desc-ja" class="desc-section">
-    <p>キーキャップをタップ。タイピング音を楽しんで。ポケットの中のメカニカルキーボード体験。</p>
-  </div>
-
-  <a href="https://apps.apple.com/app/id6770513549" class="dl-btn" target="_blank">Download on the App Store</a>
-</div>
+</section>
 
 <!-- FEATURES -->
-<div class="features">
-  <div class="feature">
-    <div class="fi">🎵</div>
-    <h3>Click Sounds</h3>
-    <p>3 mechanical keyboard sound packs</p>
-  </div>
-  <div class="feature">
-    <div class="fi">🎨</div>
-    <h3>Customize</h3>
-    <p>Labels, images, and keycap skins</p>
-  </div>
-  <div class="feature">
-    <div class="fi">✨</div>
-    <h3>Secret Skins</h3>
-    <p>Unlock by reaching tap milestones</p>
-  </div>
-</div>
-
-<!-- PRIVACY POLICY -->
-<div class="privacy-wrap" id="privacy">
-  <div class="privacy">
-    <div class="privacy-title">Privacy Policy</div>
-    <div class="privacy-meta">개인정보처리방침 · プライバシーポリシー</div>
-
-    <div class="lang">
-      <button class="active" onclick="showPrivacy('en', this)">English</button>
-      <button onclick="showPrivacy('ko', this)">한국어</button>
-      <button onclick="showPrivacy('ja', this)">日本語</button>
+<section class="features">
+  <p class="section-label fade-in">Features</p>
+  <h2 class="section-title fade-in">Everything you need<br>to fidget.</h2>
+  <div class="feature-grid">
+    <div class="feature-card fade-in">
+      <div class="feature-icon">🎵</div>
+      <h3>Click Sounds</h3>
+      <p>3 mechanical keyboard sound packs. From tactile clacks to smooth linears — find your perfect click.</p>
     </div>
-
-    <!-- ENGLISH -->
-    <div id="pp-en" class="section active">
-      <p><strong>Effective Date:</strong> May 15, 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 15, 2026</p>
-      <h2>1. Introduction</h2>
-      <p>Keyz ("we", "our", or "the app") is a keycap fidget app developed by an independent developer. This Privacy Policy explains how we handle information when you use Keyz.</p>
-      <h2>2. Information We Collect</h2>
-      <p>Keyz is designed to work without requiring any personal information. However, the following data may be processed:</p>
-      <ul>
-        <li><strong>Click count and settings</strong> — stored locally on your device only (UserDefaults). We never access or transmit this data.</li>
-        <li><strong>Custom keycap images</strong> — stored locally on your device (app sandbox). Never uploaded to any server.</li>
-        <li><strong>Ad data (non-paying users)</strong> — Google AdMob may collect advertising identifiers and usage data to serve ads. See <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</li>
-        <li><strong>Purchase information</strong> — In-app purchases (Lifetime Pass) are handled entirely by Apple's App Store. We do not receive your payment details.</li>
-      </ul>
-      <h2>3. How We Use Information</h2>
-      <p>We do not collect, store, or process any personal data on our servers. All user data remains on your device.</p>
-      <h2>4. Third-Party Services</h2>
-      <ul>
-        <li><strong>Google AdMob</strong> — used to display rewarded ads for non-paying users. <a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob Privacy</a></li>
-        <li><strong>Apple StoreKit</strong> — handles all in-app purchases securely.</li>
-      </ul>
-      <h2>5. Children's Privacy</h2>
-      <p>Keyz does not knowingly collect personal information from children under 13. The app contains advertising (Google AdMob); parental guidance is recommended for younger users.</p>
-      <h2>6. Data Retention</h2>
-      <p>All app data (settings, click count, labels) is stored locally on your device and can be deleted by uninstalling the app.</p>
-      <h2>7. Your Rights</h2>
-      <p>Since we store no personal data on our servers, there is nothing to access, correct, or delete on our end. To remove all data, simply delete the app from your device.</p>
-      <h2>8. Changes to This Policy</h2>
-      <p>We may update this policy. The latest version will always be available at this URL. Continued use of the app after changes constitutes acceptance.</p>
-      <h2>9. Contact</h2>
-      <p>Questions? Email us at <a href="mailto:keyz.app@icloud.com">keyz.app@icloud.com</a></p>
+    <div class="feature-card fade-in">
+      <div class="feature-icon">🎨</div>
+      <h3>Customize</h3>
+      <p>Labels, images, and keycap skins. Make it yours with full personalization.</p>
     </div>
-
-    <!-- KOREAN -->
-    <div id="pp-ko" class="section">
-      <p><strong>시행일:</strong> 2026년 5월 15일</p>
-      <h2>1. 개요</h2>
-      <p>Keyz(이하 "앱")는 개인 개발자가 제작한 키캡 피젯 앱입니다. 본 개인정보처리방침은 앱 사용 시 정보 처리 방식을 안내합니다.</p>
-      <h2>2. 수집하는 정보</h2>
-      <ul>
-        <li><strong>클릭 카운터 및 설정값</strong> — 기기 내 로컬 저장(UserDefaults). 외부 전송 없음.</li>
-        <li><strong>키캡 커스텀 이미지</strong> — 기기 내 저장(앱 샌드박스). 서버 업로드 없음.</li>
-        <li><strong>광고 데이터 (무료 이용자)</strong> — Google AdMob이 광고 ID 및 사용 데이터를 수집할 수 있습니다. <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보처리방침</a> 참조.</li>
-        <li><strong>구매 정보</strong> — 평생 패스 인앱 구매는 Apple App Store가 처리하며, 결제 정보는 앱에 전달되지 않습니다.</li>
-      </ul>
-      <h2>3. 정보 이용 목적</h2>
-      <p>당사는 개인 데이터를 서버에 수집·저장·처리하지 않습니다. 모든 사용자 데이터는 기기 내에만 저장됩니다.</p>
-      <h2>4. 제3자 서비스</h2>
-      <ul>
-        <li><strong>Google AdMob</strong> — 무료 이용자 대상 보상형 광고 제공.</li>
-        <li><strong>Apple StoreKit</strong> — 인앱 구매 보안 처리.</li>
-      </ul>
-      <h2>5. 아동 개인정보</h2>
-      <p>만 14세 미만 아동의 개인정보를 의도적으로 수집하지 않습니다. 광고가 포함되어 있으므로 어린 사용자는 보호자 지도 하에 이용을 권장합니다.</p>
-      <h2>6. 데이터 보관</h2>
-      <p>모든 앱 데이터는 기기 내 저장되며, 앱 삭제 시 함께 제거됩니다.</p>
-      <h2>7. 이용자 권리</h2>
-      <p>서버에 개인정보를 저장하지 않으므로 별도 요청 없이 앱 삭제만으로 모든 데이터를 제거할 수 있습니다.</p>
-      <h2>8. 방침 변경</h2>
-      <p>방침 변경 시 본 페이지에 최신 버전이 게시됩니다.</p>
-      <h2>9. 문의</h2>
-      <p><a href="mailto:keyz.app@icloud.com">keyz.app@icloud.com</a></p>
+    <div class="feature-card fade-in">
+      <div class="feature-icon">🔓</div>
+      <h3>Secret Skins</h3>
+      <p>Unlock exclusive keycap skins by reaching tap milestones. Keep clicking to discover more.</p>
     </div>
-
-    <!-- JAPANESE -->
-    <div id="pp-ja" class="section">
-      <p><strong>施行日:</strong> 2026年5月15日</p>
-      <h2>1. はじめに</h2>
-      <p>Keyz（以下「本アプリ」）は個人開発者が制作したキーキャップフィジェットアプリです。本プライバシーポリシーでは、アプリ使用時の情報取り扱い方針を説明します。</p>
-      <h2>2. 収集する情報</h2>
-      <ul>
-        <li><strong>クリック数・設定</strong> — デバイス内にローカル保存（UserDefaults）。外部送信なし。</li>
-        <li><strong>カスタム画像</strong> — デバイス内に保存（アプリサンドボックス）。サーバーアップロードなし。</li>
-        <li><strong>広告データ（無料ユーザー）</strong> — Google AdMobが広告IDや利用データを収集する場合があります。</li>
-        <li><strong>購入情報</strong> — アプリ内課金はApple App Storeが処理します。</li>
-      </ul>
-      <h2>3. 第三者サービス</h2>
-      <ul>
-        <li><strong>Google AdMob</strong> — 無料ユーザー向けリワード広告。</li>
-        <li><strong>Apple StoreKit</strong> — アプリ内課金の安全な処理。</li>
-      </ul>
-      <h2>4. お問い合わせ</h2>
-      <p><a href="mailto:keyz.app@icloud.com">keyz.app@icloud.com</a></p>
-    </div>
-
   </div>
-</div>
+</section>
 
-<div class="footer">
-  <p>키즈(Keyz) &nbsp;·&nbsp; 대표 심광섭 &nbsp;·&nbsp; 사업자등록번호 669-21-02587 &nbsp;·&nbsp; 통신판매업 2026-경기하남-1034</p>
-  <p><a href="mailto:keyz.app@icloud.com">keyz.app@icloud.com</a> &nbsp;·&nbsp; © 2026 키즈(Keyz). All rights reserved.</p>
-</div>
+<!-- DOWNLOAD -->
+<section class="download">
+  <div class="download-inner fade-in">
+    <h2>Ready to click?</h2>
+    <p>Free to download. Start tapping in seconds.</p>
+    <a class="appstore-btn" href="https://apps.apple.com/app/id6770513549">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
+    <p class="free-badge">Free · iOS 17.0+</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">Keyz</div>
+    <nav class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:support@keyz.dev">Support</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-info">
+      키즈(Keyz) · 대표 심광섭 · 사업자등록번호 669-21-02587 · 통신판매업 2026-경기하남-1034<br>
+      support@keyz.dev
+    </p>
+    <p class="footer-copy">© 2026 키즈(Keyz). All rights reserved.</p>
+  </div>
+</footer>
 
 <script>
-function showDesc(lang, btn) {
-  document.querySelectorAll('.desc-section').forEach(s => s.classList.remove('active'));
-  document.getElementById('desc-' + lang).classList.add('active');
-  btn.closest('.lang').querySelectorAll('button').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
-function showPrivacy(lang, btn) {
-  document.querySelectorAll('#privacy .section').forEach(s => s.classList.remove('active'));
-  document.getElementById('pp-' + lang).classList.add('active');
-  btn.closest('.lang').querySelectorAll('button').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Fade in on scroll
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Key press animation
+  document.querySelectorAll('.key').forEach(key => {
+    key.addEventListener('pointerdown', () => key.classList.add('pressed'));
+    key.addEventListener('pointerup',   () => key.classList.remove('pressed'));
+    key.addEventListener('pointerout',  () => key.classList.remove('pressed'));
+  });
 </script>
 </body>
 </html>
