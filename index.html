@@ -7,367 +7,262 @@
   <meta name="description" content="Tap keycaps. Hear the click. The mechanical keyboard experience that fits in your pocket." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0a0a;
-      --surface: #141414;
-      --border: #222;
-      --text: #f0ece4;
-      --muted: #888;
-      --accent: #d4c5a9;
-      --cta: #f0ece4;
+      --bg: #f5f0ea;
+      --white: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --border: rgba(0,0,0,0.08);
+      --cta-bg: #1d1d1f;
+      --cta-text: #f5f0ea;
     }
 
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
     }
 
     /* NAV */
     #nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 40px;
-      background: rgba(10,10,10,0.8);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      padding: 0 40px; height: 52px;
+      background: rgba(245,240,234,0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s;
     }
     #nav.scrolled { border-color: var(--border); }
-    .nav-logo { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; }
-    .nav-cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 18px;
-      background: var(--cta); color: #0a0a0a;
-      border-radius: 100px; font-size: 0.85rem; font-weight: 500;
-      text-decoration: none; transition: opacity 0.2s;
+    .nav-logo { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; }
+    .nav-dl {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 16px;
+      background: var(--cta-bg); color: var(--cta-text);
+      border-radius: 100px; font-size: 0.82rem; font-weight: 500;
+      text-decoration: none; transition: opacity 0.15s;
     }
-    .nav-cta:hover { opacity: 0.85; }
-    .nav-cta svg { width: 16px; height: 16px; }
+    .nav-dl:hover { opacity: 0.8; }
+    .nav-dl svg { width: 14px; height: 14px; }
 
     /* HERO */
     .hero {
       min-height: 100svh;
       display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
+      align-items: center; justify-content: center;
       text-align: center;
-      padding: 120px 24px 80px;
-      position: relative; overflow: hidden;
+      padding: 100px 24px 60px;
     }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(212,197,169,0.08) 0%, transparent 70%);
-      pointer-events: none;
+    .app-name {
+      font-size: clamp(5rem, 22vw, 12rem);
+      font-weight: 700; letter-spacing: -0.06em; line-height: 0.88;
+      color: var(--text); margin-bottom: 28px;
     }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 5px 14px;
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      font-size: 0.78rem; color: var(--muted);
-      margin-bottom: 32px;
-      letter-spacing: 0.02em;
-    }
-    .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; display: inline-block; }
-    h1 {
-      font-size: clamp(2.4rem, 8vw, 5rem);
-      font-weight: 600;
-      letter-spacing: -0.04em;
-      line-height: 1.05;
-      max-width: 700px;
-      margin-bottom: 24px;
-    }
-    h1 em { font-style: normal; color: var(--accent); }
-    .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--muted);
-      max-width: 440px;
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 28px;
-      background: var(--cta); color: #0a0a0a;
-      border-radius: 100px; font-size: 0.95rem; font-weight: 500;
-      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
-    }
-    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
-    .btn-primary svg { width: 20px; height: 20px; }
-    .hero-mockup {
-      margin-top: 72px;
-      position: relative;
-      display: flex; justify-content: center;
-    }
-    .mockup-phone {
-      width: 220px;
-      height: 440px;
-      background: var(--surface);
-      border-radius: 36px;
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
-    }
-    .mockup-inner {
-      width: 180px; height: 380px;
-      background: linear-gradient(160deg, #1a1a1a 0%, #0f0f0f 100%);
-      border-radius: 28px;
-      display: grid; grid-template-columns: repeat(4,1fr); gap: 8px;
-      padding: 32px 16px 16px;
-      align-content: start;
-    }
-    .key {
-      aspect-ratio: 1;
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.65rem; font-weight: 500; color: #888;
-      cursor: pointer; transition: transform 0.08s, box-shadow 0.08s;
-      user-select: none;
-    }
-    .key.cream  { background: #d4c5a9; color: #333; }
-    .key.dark   { background: #2a2a2a; color: #777; border: 1px solid #333; }
-    .key.purple { background: #4a3f6b; color: #c4b5e9; }
-    .key.wide   { grid-column: span 2; border-radius: 8px; }
-    .key:active, .key.pressed { transform: scale(0.9); box-shadow: 0 2px 6px rgba(0,0,0,0.4); }
-
-    /* FEATURES */
-    .features {
-      padding: 100px 24px;
-      max-width: 900px; margin: 0 auto;
-    }
-    .section-label {
-      font-size: 0.78rem; color: var(--muted);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 600; letter-spacing: -0.03em;
-      margin-bottom: 64px; max-width: 500px;
-    }
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2px;
-    }
-    .feature-card {
-      background: var(--surface);
-      padding: 36px 32px;
-      transition: background 0.2s;
-    }
-    .feature-card:first-child { border-radius: 20px 0 0 20px; }
-    .feature-card:last-child  { border-radius: 0 20px 20px 0; }
-    @media(max-width:640px) {
-      .feature-card:first-child { border-radius: 20px 20px 0 0; }
-      .feature-card:last-child  { border-radius: 0 0 20px 20px; }
-    }
-    .feature-card:hover { background: #1a1a1a; }
-    .feature-icon {
-      width: 44px; height: 44px;
-      background: rgba(212,197,169,0.1);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      margin-bottom: 20px;
-    }
-    .feature-card h3 { font-size: 1.05rem; font-weight: 500; margin-bottom: 10px; letter-spacing: -0.01em; }
-    .feature-card p  { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
-
-    /* DOWNLOAD */
-    .download {
-      padding: 100px 24px;
-      text-align: center;
-    }
-    .download-inner {
-      max-width: 560px; margin: 0 auto;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 60px 40px;
-    }
-    .download h2 {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      font-weight: 600; letter-spacing: -0.03em;
-      margin-bottom: 16px;
-    }
-    .download p { color: var(--muted); margin-bottom: 36px; font-size: 0.95rem; }
-    .appstore-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 32px;
-      background: var(--cta); color: #0a0a0a;
-      border-radius: 100px; font-size: 0.95rem; font-weight: 500;
-      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
-    }
-    .appstore-btn:hover { opacity: 0.88; transform: translateY(-1px); }
-    .appstore-btn svg { width: 20px; height: 20px; }
-    .free-badge {
-      margin-top: 16px;
-      font-size: 0.8rem; color: var(--muted);
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 48px 40px 40px;
-      max-width: 900px; margin: 0 auto;
-    }
-    .footer-top {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      flex-wrap: wrap; gap: 24px;
+    .hero-tagline {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      color: var(--muted); font-weight: 400;
+      letter-spacing: -0.01em; line-height: 1.6;
       margin-bottom: 40px;
     }
-    .footer-brand { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a { font-size: 0.85rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--text); }
-    .footer-bottom {
-      display: flex; flex-direction: column; gap: 6px;
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 14px 28px;
+      background: var(--cta-bg); color: var(--cta-text);
+      border-radius: 100px; font-size: 1rem; font-weight: 500;
+      text-decoration: none; letter-spacing: -0.01em;
+      transition: opacity 0.15s, transform 0.2s;
+      margin-bottom: 10px;
     }
-    .footer-info { font-size: 0.78rem; color: #555; line-height: 1.7; }
-    .footer-copy { font-size: 0.78rem; color: #444; margin-top: 8px; }
+    .hero-cta:hover { opacity: 0.82; transform: scale(1.02); }
+    .hero-cta svg { width: 20px; height: 20px; }
+    .hero-note { font-size: 0.78rem; color: var(--muted); margin-bottom: 64px; }
 
-    /* FADE IN */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .phone-wrap { display: inline-block; }
+    .phone-shell {
+      width: min(260px, 68vw);
+      border-radius: 44px;
+      overflow: hidden;
+      box-shadow:
+        0 2px 4px rgba(0,0,0,0.06),
+        0 8px 24px rgba(0,0,0,0.10),
+        0 32px 80px rgba(0,0,0,0.14),
+        inset 0 0 0 1px rgba(0,0,0,0.08);
+    }
+    .phone-shell img { width: 100%; height: auto; display: block; }
 
-    @media(max-width:640px) {
-      nav { padding: 16px 20px; }
-      footer { padding: 40px 20px 32px; }
-      .footer-top { flex-direction: column; }
-      .download-inner { padding: 40px 24px; }
+    /* DIVIDER */
+    .divider { height: 1px; background: var(--border); margin: 0 40px; }
+
+    /* FEATURES */
+    .features { padding: 96px 40px; max-width: 980px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700; letter-spacing: -0.04em; line-height: 1.05;
+      margin-bottom: 72px; max-width: 480px;
+    }
+    .feat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+    .feat {
+      background: var(--white); padding: 40px 32px; transition: background 0.2s;
+    }
+    .feat:first-child { border-radius: 20px 0 0 20px; }
+    .feat:last-child  { border-radius: 0 20px 20px 0; }
+    .feat:hover { background: #fefefe; }
+    .feat-icon {
+      width: 48px; height: 48px; background: var(--bg);
+      border-radius: 14px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.4rem; margin-bottom: 24px;
+    }
+    .feat h3 { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .feat p  { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* DOWNLOAD */
+    .download { padding: 80px 24px 96px; text-align: center; }
+    .dl-card {
+      max-width: 540px; margin: 0 auto;
+      background: var(--white); border-radius: 28px; padding: 64px 48px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .dl-card h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700; letter-spacing: -0.04em; margin-bottom: 14px;
+    }
+    .dl-card p { font-size: 0.95rem; color: var(--muted); margin-bottom: 36px; line-height: 1.6; }
+    .dl-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px;
+      background: var(--cta-bg); color: var(--cta-text);
+      border-radius: 100px; font-size: 1rem; font-weight: 500;
+      text-decoration: none; letter-spacing: -0.01em;
+      transition: opacity 0.15s, transform 0.2s;
+    }
+    .dl-btn:hover { opacity: 0.82; transform: scale(1.02); }
+    .dl-btn svg { width: 20px; height: 20px; }
+    .dl-note { margin-top: 14px; font-size: 0.78rem; color: var(--muted); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 40px; max-width: 980px; margin: 0 auto; }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px; margin-bottom: 28px;
+    }
+    .footer-brand { font-size: 0.9rem; font-weight: 600; letter-spacing: -0.02em; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-meta { font-size: 0.75rem; color: #a0a0a5; line-height: 1.8; }
+    .footer-copy { font-size: 0.75rem; color: #b0b0b5; margin-top: 8px; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 720px) {
+      #nav { padding: 0 20px; }
+      .features { padding: 72px 20px; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .feat:first-child { border-radius: 20px 20px 0 0; }
+      .feat:last-child  { border-radius: 0 0 20px 20px; }
+      .dl-card { padding: 48px 28px; }
+      footer { padding: 32px 20px; }
+      .divider { margin: 0 20px; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-logo">Keyz</div>
-  <a class="nav-cta" href="https://apps.apple.com/app/id6770513549">
+  <a class="nav-dl" href="https://apps.apple.com/app/id6770513549">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
     Download
   </a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-badge"><span></span> Available on the App Store</div>
-  <h1>Tap keycaps.<br><em>Hear the click.</em></h1>
-  <p class="hero-sub">The mechanical keyboard experience that fits in your pocket.</p>
-  <div class="hero-actions">
-    <a class="btn-primary" href="https://apps.apple.com/app/id6770513549">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      Download on the App Store
-    </a>
-  </div>
-  <div class="hero-mockup">
-    <div class="mockup-phone">
-      <div class="mockup-inner" id="keyGrid">
-        <div class="key cream">Q</div>
-        <div class="key dark">W</div>
-        <div class="key cream">E</div>
-        <div class="key purple">R</div>
-        <div class="key dark">A</div>
-        <div class="key cream">S</div>
-        <div class="key dark">D</div>
-        <div class="key cream">F</div>
-        <div class="key purple">Z</div>
-        <div class="key dark">X</div>
-        <div class="key cream">C</div>
-        <div class="key dark">V</div>
-        <div class="key cream wide">SPACE</div>
-        <div class="key dark">↵</div>
-      </div>
+  <h1 class="app-name">Keyz</h1>
+  <p class="hero-tagline">Tap keycaps. Hear the click.<br>The mechanical keyboard experience<br>that fits in your pocket.</p>
+  <a class="hero-cta" href="https://apps.apple.com/app/id6770513549">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    Download on the App Store
+  </a>
+  <p class="hero-note">Free · iOS 17.0+</p>
+  <div class="phone-wrap">
+    <div class="phone-shell">
+      <img src="app-screenshot.png" alt="Keyz app showing K E Y Z keycaps" />
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
+<div class="divider"></div>
+
 <section class="features">
-  <p class="section-label fade-in">Features</p>
-  <h2 class="section-title fade-in">Everything you need<br>to fidget.</h2>
-  <div class="feature-grid">
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🎵</div>
+  <p class="eyebrow reveal">Features</p>
+  <h2 class="section-title reveal">Everything you need<br>to fidget.</h2>
+  <div class="feat-grid">
+    <div class="feat reveal">
+      <div class="feat-icon">🎵</div>
       <h3>Click Sounds</h3>
       <p>3 mechanical keyboard sound packs. From tactile clacks to smooth linears — find your perfect click.</p>
     </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🎨</div>
+    <div class="feat reveal">
+      <div class="feat-icon">🎨</div>
       <h3>Customize</h3>
-      <p>Labels, images, and keycap skins. Make it yours with full personalization.</p>
+      <p>Labels, images, and keycap skins. Make every key uniquely yours.</p>
     </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🔓</div>
+    <div class="feat reveal">
+      <div class="feat-icon">🔓</div>
       <h3>Secret Skins</h3>
       <p>Unlock exclusive keycap skins by reaching tap milestones. Keep clicking to discover more.</p>
     </div>
   </div>
 </section>
 
-<!-- DOWNLOAD -->
+<div class="divider"></div>
+
 <section class="download">
-  <div class="download-inner fade-in">
+  <div class="dl-card reveal">
     <h2>Ready to click?</h2>
     <p>Free to download. Start tapping in seconds.</p>
-    <a class="appstore-btn" href="https://apps.apple.com/app/id6770513549">
+    <a class="dl-btn" href="https://apps.apple.com/app/id6770513549">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
       Download on the App Store
     </a>
-    <p class="free-badge">Free · iOS 17.0+</p>
+    <p class="dl-note">Free · iOS 17.0+</p>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">Keyz</div>
-    <nav class="footer-links">
+    <div class="footer-links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="mailto:support@keyz.dev">Support</a>
-    </nav>
+    </div>
   </div>
-  <div class="footer-bottom">
-    <p class="footer-info">
-      키즈(Keyz) · 대표 심광섭 · 사업자등록번호 669-21-02587 · 통신판매업 2026-경기하남-1034<br>
-      support@keyz.dev
-    </p>
-    <p class="footer-copy">© 2026 키즈(Keyz). All rights reserved.</p>
-  </div>
+  <p class="footer-meta">키즈(Keyz) · 대표 심광섭 · 사업자등록번호 669-21-02587 · 통신판매업 2026-경기하남-1034 · support@keyz.dev</p>
+  <p class="footer-copy">© 2026 키즈(Keyz). All rights reserved.</p>
 </footer>
 
 <script>
-  // Nav scroll effect
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  });
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
 
-  // Fade in on scroll
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-    { threshold: 0.1 }
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } }),
+    { threshold: 0.12 }
   );
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Key press animation
-  document.querySelectorAll('.key').forEach(key => {
-    key.addEventListener('pointerdown', () => key.classList.add('pressed'));
-    key.addEventListener('pointerup',   () => key.classList.remove('pressed'));
-    key.addEventListener('pointerout',  () => key.classList.remove('pressed'));
-  });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
