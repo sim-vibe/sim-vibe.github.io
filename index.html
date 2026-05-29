@@ -85,16 +85,37 @@
 
     .phone-wrap { display: inline-block; }
     .phone-shell {
+      position: relative;
       width: min(260px, 68vw);
       border-radius: 44px;
       overflow: hidden;
+      cursor: pointer;
       box-shadow:
         0 2px 4px rgba(0,0,0,0.06),
         0 8px 24px rgba(0,0,0,0.10),
         0 32px 80px rgba(0,0,0,0.14),
         inset 0 0 0 1px rgba(0,0,0,0.08);
+      transition: transform 0.15s ease;
     }
-    .phone-shell img { width: 100%; height: auto; display: block; }
+    .phone-shell:active { transform: scale(0.985); }
+    .phone-shell img {
+      width: 100%; height: auto; display: block;
+    }
+    .phone-shell .screen-led {
+      position: absolute; inset: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .phone-shell.led .screen-led { opacity: 1; }
+    .tap-hint {
+      display: inline-flex; align-items: center; gap: 7px;
+      margin-top: 24px;
+      font-size: 0.8rem; color: var(--muted);
+      letter-spacing: -0.01em;
+      transition: opacity 0.3s;
+    }
+    .tap-hint svg { width: 15px; height: 15px; }
+    .tap-hint.hide { opacity: 0; }
 
     /* DIVIDER */
     .divider { height: 1px; background: var(--border); margin: 0 40px; }
@@ -198,8 +219,13 @@
   </a>
   <p class="hero-note">Free · iOS 17.0+</p>
   <div class="phone-wrap">
-    <div class="phone-shell">
-      <img src="app-screenshot.png" alt="Keyz app showing K E Y Z keycaps" />
+    <div class="phone-shell" id="phone" role="button" tabindex="0" aria-label="Tap to toggle LED mode">
+      <img class="screen-base" src="app-screenshot.png" alt="Keyz app showing K E Y Z keycaps" />
+      <img class="screen-led" src="app-screenshot-led.png" alt="Keyz app in LED mode" />
+    </div>
+    <div class="tap-hint" id="tapHint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5V5.5a1.5 1.5 0 0 1 3 0v5"/><path d="M12 10V4.5a1.5 1.5 0 0 1 3 0V10"/><path d="M15 9.5V6a1.5 1.5 0 0 1 3 0v7a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3.5l-2-3.5a1.5 1.5 0 0 1 2.6-1.5L6 12"/><path d="M9 10.5v-1a1.5 1.5 0 0 0-3 0v3"/></svg>
+      Tap to turn on the lights
     </div>
   </div>
 </section>
@@ -263,6 +289,18 @@
     { threshold: 0.12 }
   );
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Tap phone to toggle LED mode
+  const phone = document.getElementById('phone');
+  const tapHint = document.getElementById('tapHint');
+  const toggleLed = () => {
+    phone.classList.toggle('led');
+    tapHint.classList.add('hide');
+  };
+  phone.addEventListener('click', toggleLed);
+  phone.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleLed(); }
+  });
 </script>
 </body>
 </html>
