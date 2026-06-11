@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Token Meter for Claude — 메뉴바에서 보는 Claude Code 사용량</title>
+  <meta name="description" content="Token Meter for Claude는 Claude Code 토큰 사용량을 실시간으로 보여주는 macOS 메뉴바 앱입니다. 5시간 세션과 주간 한도를 Claude Code의 /usage와 동일한 데이터로 확인하세요. Mac App Store 출시 예정." />
+  <meta name="keywords" content="토큰 미터, Claude Code 사용량, 토큰 사용량, 사용 한도, macOS 메뉴바 앱, Claude Code, 개발자 도구, Keyz" />
+  <meta name="author" content="Keyz" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://keyz.dev/ko/token-meter.html" />
+  <meta name="theme-color" content="#0a1a27" />
+
+  <!-- hreflang alternates -->
+  <link rel="alternate" hreflang="en" href="https://keyz.dev/token-meter.html" />
+  <link rel="alternate" hreflang="ko" href="https://keyz.dev/ko/token-meter.html" />
+  <link rel="alternate" hreflang="ja" href="https://keyz.dev/ja/token-meter.html" />
+  <link rel="alternate" hreflang="x-default" href="https://keyz.dev/token-meter.html" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Keyz" />
+  <meta property="og:title" content="Token Meter for Claude — 메뉴바에서 보는 Claude Code 사용량" />
+  <meta property="og:description" content="Claude Code 토큰 사용량을 실시간으로 보여주는 macOS 메뉴바 앱. Mac App Store 출시 예정." />
+  <meta property="og:url" content="https://keyz.dev/ko/token-meter.html" />
+  <meta property="og:image" content="https://keyz.dev/token-meter-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="ja_JP" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Token Meter for Claude" />
+  <meta name="twitter:description" content="Claude Code 토큰 사용량을 실시간으로 보여주는 macOS 메뉴바 앱. Mac App Store 출시 예정." />
+  <meta name="twitter:image" content="https://keyz.dev/token-meter-og.png" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Token Meter for Claude",
+    "operatingSystem": "macOS 13.0+",
+    "applicationCategory": "DeveloperApplication",
+    "description": "Claude Code 토큰 사용량을 실시간으로 보여주는 macOS 메뉴바 앱. 5시간 세션과 주간 한도를 Claude Code의 /usage와 동일한 데이터로 확인합니다.",
+    "url": "https://keyz.dev/ko/token-meter.html",
+    "image": "https://keyz.dev/token-meter-icon.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+    "author": { "@type": "Organization", "name": "Keyz", "url": "https://keyz.dev/" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/style-token-meter.css" />
+</head>
+<body class="tm-page">
+
+<nav id="nav">
+  <a class="nav-logo" href="/ko/" style="text-decoration:none;color:inherit;">Keyz</a>
+  <span class="cta-soon" style="padding:7px 16px;font-size:0.82rem;">출시 예정</span>
+</nav>
+
+<section class="hero">
+  <img class="tm-icon" src="/token-meter-icon.png" alt="Token Meter 앱 아이콘" />
+  <h1 class="app-name">Token Meter</h1>
+  <p class="hero-tagline">Claude Code 토큰 사용량을<br>메뉴바에서 실시간으로.</p>
+  <span class="cta-soon">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    Mac App Store 출시 예정
+  </span>
+  <p class="hero-note">macOS 13.0+ · Claude Code 필요</p>
+  <div class="tm-visual">
+    <div class="tm-card">
+      <div class="tm-sec"><div class="tm-r1"><span class="tm-ttl">Current session</span><span class="tm-pct">28% used</span></div><div class="tm-bar"><div class="tm-fill" style="width:28%"></div></div><div class="tm-rst">Resets today at 5:40am</div></div>
+      <div class="tm-dv"></div>
+      <div class="tm-sec"><div class="tm-r1"><span class="tm-ttl">Current week (all models)</span><span class="tm-pct">69% used</span></div><div class="tm-bar"><div class="tm-fill" style="width:69%"></div></div><div class="tm-rst">Resets Jun 9 at 11:00am</div></div>
+      <div class="tm-dv"></div>
+      <div class="tm-ft"><span>Refresh</span><span class="upd">Updated 1:35:51 am</span></div>
+      <div class="tm-dv"></div>
+      <div class="tm-ft"><span>About</span></div>
+      <div class="tm-ft"><span>Contact Us</span></div>
+      <div class="tm-ft"><span>Quit</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="features">
+  <p class="eyebrow reveal">왜 Token Meter인가</p>
+  <h2 class="section-title reveal">내 한도를<br>항상 한눈에.</h2>
+  <div class="feat-grid">
+    <div class="feat reveal">
+      <div class="feat-icon">⚡️</div>
+      <h3>원본 그대로</h3>
+      <p>Claude Code의 /usage와 같은 데이터를 API 응답에서 직접 읽습니다. 추정 없이, 오차 없이.</p>
+    </div>
+    <div class="feat reveal">
+      <div class="feat-icon">📊</div>
+      <h3>세션 &amp; 주간</h3>
+      <p>5시간 세션과 7일 한도를 각각 진행바와 리셋 카운트다운으로 보여줍니다.</p>
+    </div>
+    <div class="feat reveal">
+      <div class="feat-icon">🔒</div>
+      <h3>100% 로컬</h3>
+      <p>계정도, 네트워크도, 추적도 없습니다. 모든 것이 Mac 안에 머뭅니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="download">
+  <div class="dl-card reveal">
+    <h2>출시 예정.</h2>
+    <p>Token Meter for Claude가 곧 Mac App Store에 찾아갑니다.</p>
+    <span class="cta-soon">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Mac App Store 출시 예정
+    </span>
+    <p class="dl-note">macOS 13.0+ · Claude Code 필요</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">Keyz</div>
+    <div class="footer-links">
+      <a href="/ko/">Keyz 홈</a>
+      <a href="mailto:support@keyz.dev">고객지원</a>
+    </div>
+  </div>
+  <div class="footer-more">
+    <span class="footer-more-label">개발자의 다른 앱</span>
+    <a class="footer-more-link" href="/ko/">
+      <img class="fm-icon" src="/icon-192.png" alt="" />
+      <span class="fm-text"><span class="fm-name">Keyz</span><span class="fm-desc">아이폰용 키캡 피젯 앱</span></span>
+      <span class="fm-arrow">→</span>
+    </a>
+  </div>
+  <p class="footer-meta">키즈(Keyz) · 대표 심광섭 · 사업자등록번호 669-21-02587 · 통신판매업 2026-경기하남-1034 · support@keyz.dev</p>
+  <p class="footer-copy">© 2026 키즈(Keyz). All rights reserved.</p>
+  <p class="tm-legal">Token Meter for Claude는 독립적인 앱으로, Anthropic과 제휴·보증·후원 관계가 없습니다. ‘Claude’는 Anthropic, PBC의 상표이며 호환성 설명 목적으로만 사용되었습니다.</p>
+  <div class="footer-lang">
+    <div class="lang-select">
+      <button class="lang-btn" aria-haspopup="true" aria-expanded="false">
+        <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 2.5 16 0 18M12 3c-2.5 2.5-2.5 16 0 18"/></svg>
+        <span class="lang-current">한국어</span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <ul class="lang-menu" role="listbox">
+        <li><a href="/token-meter.html" hreflang="en" data-lang="en">English</a></li>
+        <li><a href="/ko/token-meter.html" hreflang="ko" data-lang="ko" class="active">한국어</a></li>
+        <li><a href="/ja/token-meter.html" hreflang="ja" data-lang="ja">日本語</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

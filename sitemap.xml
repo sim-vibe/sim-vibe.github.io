@@ -61,4 +61,34 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://keyz.dev/ja/privacy.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://keyz.dev/privacy.html"/>
   </url>
+  <url>
+    <loc>https://keyz.dev/token-meter.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keyz.dev/token-meter.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://keyz.dev/ko/token-meter.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://keyz.dev/ja/token-meter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyz.dev/token-meter.html"/>
+  </url>
+  <url>
+    <loc>https://keyz.dev/ko/token-meter.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keyz.dev/token-meter.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://keyz.dev/ko/token-meter.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://keyz.dev/ja/token-meter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyz.dev/token-meter.html"/>
+  </url>
+  <url>
+    <loc>https://keyz.dev/ja/token-meter.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keyz.dev/token-meter.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://keyz.dev/ko/token-meter.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://keyz.dev/ja/token-meter.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keyz.dev/token-meter.html"/>
+  </url>
 </urlset>

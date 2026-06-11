@@ -178,6 +178,24 @@ footer { border-top: 1px solid var(--border); padding: 40px; max-width: 980px; m
 .footer-copy { font-size: 0.75rem; color: #b0b0b5; margin-top: 8px; }
 .footer-lang { margin-top: 26px; }
 
+/* FOOTER — more from this developer (cross-link) */
+.footer-more { margin: 28px 0; padding-top: 28px; border-top: 1px solid var(--border); }
+.footer-more-label {
+  display: block; font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+}
+.footer-more-link {
+  display: inline-flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--text);
+}
+.fm-icon { width: 36px; height: 36px; border-radius: 9px; flex: none;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06); }
+.fm-text { display: flex; flex-direction: column; gap: 2px; }
+.fm-name { font-size: 0.92rem; font-weight: 600; letter-spacing: -0.02em; }
+.fm-desc { font-size: 0.8rem; color: var(--muted); }
+.fm-arrow { color: var(--muted); margin-left: 4px; transition: transform 0.15s; }
+.footer-more-link:hover .fm-arrow { transform: translateX(3px); }
+
 /* LANGUAGE DROPDOWN */
 .lang-select { position: relative; display: inline-block; }
 .lang-btn {
