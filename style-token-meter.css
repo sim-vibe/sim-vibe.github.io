@@ -56,6 +56,11 @@
    body so nav/cards/footer recolor automatically; the few
    hard-coded surfaces in style.css are patched below.
    ============================================================ */
+/* Belt-and-suspenders: keep any sub-pixel overflow from exposing the
+   default white html background when dragged horizontally on mobile.
+   Scoped to Token Meter pages so Keyz pages are untouched. */
+html:has(body.tm-page) { overflow-x: hidden; }
+
 .tm-page {
   --bg: #0c1c28;
   --white: #18222e;         /* elevated dark surface (cards) */
@@ -89,7 +94,7 @@
 .tm-page .tm-visual { position: relative; }
 .tm-page .tm-visual::before {
   content: ""; position: absolute; z-index: 0;
-  width: 480px; height: 480px; left: 50%; top: 50%;
+  width: min(480px, 100vw); height: 480px; left: 50%; top: 50%;
   transform: translate(-50%,-50%); border-radius: 50%;
   background: radial-gradient(circle, rgba(63,227,204,.14), rgba(47,111,237,.08) 45%, transparent 70%);
   filter: blur(10px);
