@@ -19,6 +19,22 @@ if (phone) {
   });
 }
 
+// Nav download dropdown
+var dlWrap = document.querySelector('.nav-dl-wrap');
+if (dlWrap) {
+  var dlBtn = dlWrap.querySelector('.nav-dl');
+  dlBtn.addEventListener('click', function () {
+    var open = dlWrap.classList.toggle('open');
+    dlBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('click', function (e) {
+    if (!dlWrap.contains(e.target)) {
+      dlWrap.classList.remove('open');
+      dlBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
 // Footer language dropdown
 var langSelect = document.querySelector('.lang-select');
 if (langSelect) {

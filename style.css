@@ -30,15 +30,43 @@ body {
 }
 #nav.scrolled { border-color: var(--border); }
 .nav-logo { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; }
+.nav-dl-wrap { position: relative; }
 .nav-dl {
   display: inline-flex; align-items: center; gap: 7px;
   padding: 7px 16px;
   background: var(--cta-bg); color: var(--cta-text);
   border-radius: 100px; font-size: 0.82rem; font-weight: 500;
   text-decoration: none; transition: opacity 0.15s;
+  cursor: pointer; border: none; font-family: inherit;
 }
 .nav-dl:hover { opacity: 0.8; }
 .nav-dl svg { width: 14px; height: 14px; }
+.nav-dl-chev { opacity: 0.65; transition: transform 0.2s; }
+.nav-dl-wrap.open .nav-dl-chev { transform: rotate(180deg); }
+.nav-dl-menu {
+  position: absolute; top: calc(100% + 8px); right: 0;
+  min-width: 210px;
+  background: #fff; border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 6px;
+  opacity: 0; visibility: hidden; transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+  z-index: 200;
+}
+.nav-dl-wrap.open .nav-dl-menu {
+  opacity: 1; visibility: visible; transform: translateY(0);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.nav-dl-menu a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-radius: 9px;
+  text-decoration: none; color: var(--text);
+  font-size: 0.875rem; font-weight: 500; letter-spacing: -0.01em;
+  transition: background 0.12s;
+}
+.nav-dl-menu a:hover { background: var(--bg); }
+.nav-dl-menu a svg { width: 16px; height: 16px; flex: none; }
 
 /* HERO */
 .hero {
@@ -59,6 +87,10 @@ body {
   letter-spacing: -0.01em; line-height: 1.6;
   margin-bottom: 40px;
 }
+.store-btns {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 10px;
+}
 .hero-cta {
   display: inline-flex; align-items: center; gap: 9px;
   padding: 14px 28px;
@@ -66,7 +98,6 @@ body {
   border-radius: 100px; font-size: 1rem; font-weight: 500;
   text-decoration: none; letter-spacing: -0.01em;
   transition: opacity 0.15s, transform 0.2s;
-  margin-bottom: 10px;
 }
 .hero-cta:hover { opacity: 0.82; transform: scale(1.02); }
 .hero-cta svg { width: 20px; height: 20px; }
