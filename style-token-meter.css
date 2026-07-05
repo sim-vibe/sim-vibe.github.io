@@ -79,11 +79,18 @@ html:has(body.tm-page) { overflow-x: hidden; }
   --border: rgba(255,255,255,0.10);
   --cta-bg: #3fe3cc;
   --cta-text: #08131f;
+  background: #07121d;
+}
+/* Paint the ambient gradient on a fixed compositor layer instead of using
+   background-attachment: fixed, which repaints the whole viewport on every
+   scroll frame and stutters on mobile GPUs. This looks identical but scrolls
+   smoothly. */
+.tm-page::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background:
     radial-gradient(900px 600px at 92% 6%, rgba(63,227,204,.14), transparent 60%),
     radial-gradient(760px 560px at 80% 96%, rgba(47,111,237,.12), transparent 60%),
     linear-gradient(158deg,#0d2530 0%,#0a1a27 55%,#07121d 100%);
-  background-attachment: fixed;
 }
 .tm-page #nav { background: rgba(10,20,30,0.72); }
 .tm-page .feat:hover { background: #1c2733; }
