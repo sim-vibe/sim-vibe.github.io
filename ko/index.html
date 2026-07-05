@@ -57,7 +57,7 @@
     "url": "https://keyz.dev/ko/",
     "downloadUrl": ["https://apps.apple.com/app/id6770513549", "https://play.google.com/store/apps/details?id=com.simvibe.keyz"],
     "image": "https://keyz.dev/og-image-ko.png",
-    "screenshot": "https://keyz.dev/og-image-ko.png",
+    "screenshot": ["https://keyz.dev/skin-love.webp", "https://keyz.dev/skin-aurora.webp", "https://keyz.dev/skin-silver.webp"],
     "applicationSubCategory": "Fidget & ASMR",
     "featureList": [
       "7가지 기계식 키보드 사운드 팩",
@@ -106,6 +106,20 @@
   }
   </script>
 
+  <!-- Demo video structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Keyz — 개구리 키캡 탭하기",
+    "description": "Keyz 미리보기: 개구리 키캡을 탭하면 개구리 울음소리가 나고 눌림 애니메이션이 재생됩니다.",
+    "thumbnailUrl": "https://keyz.dev/keyz-demo-poster.webp",
+    "uploadDate": "2026-07-05",
+    "contentUrl": "https://keyz.dev/keyz-demo.mp4",
+    "duration": "PT6S"
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -118,6 +132,7 @@
   <div class="nav-links">
     <a href="#about">소개</a>
     <a href="#features">기능</a>
+    <a href="#skins">스킨</a>
     <a href="#faq">FAQ</a>
   </div>
   <div class="nav-dl-wrap">
@@ -174,6 +189,22 @@
 
 <div class="divider"></div>
 
+<section class="demo" id="demo">
+  <p class="eyebrow reveal">직접 보기</p>
+  <h2 class="section-title reveal">키를 탭하고,<br>들어보세요.</h2>
+  <div class="demo-video reveal">
+    <video id="demoVid" playsinline autoplay muted loop poster="/keyz-demo-poster.webp" width="600" height="1214" aria-label="탭하면 개구리 소리가 나는 Keyz의 개구리 키캡">
+      <source src="/keyz-demo.mp4" type="video/mp4" />
+    </video>
+    <button class="demo-sound" id="demoSound" aria-label="소리 켜기">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      소리 켜기
+    </button>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <section class="features" id="features">
   <p class="eyebrow reveal">기능</p>
   <h2 class="section-title reveal">만지작거리기 좋은<br>모든 기능.</h2>
@@ -193,6 +224,18 @@
       <h3>시크릿 스킨</h3>
       <p>탭을 거듭해 목표를 달성하면 한정 키캡 스킨이 열려요. 누를수록 새로운 디자인이 나타납니다.</p>
     </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="skins" id="skins">
+  <p class="eyebrow reveal">스킨</p>
+  <h2 class="section-title reveal">자랑하고 싶은<br>스킨들.</h2>
+  <div class="skins-row">
+    <img class="shot reveal" src="/skin-love.webp" width="600" height="1304" loading="lazy" alt="민트색 반투명 젤리 키캡으로 LOVE를 표현한 Keyz 스킨" />
+    <img class="shot reveal" src="/skin-aurora.webp" width="600" height="1304" loading="lazy" alt="3x3 배열의 무지갯빛 홀로그램 파스텔 Keyz 키캡 스킨" />
+    <img class="shot reveal" src="/skin-silver.webp" width="600" height="1304" loading="lazy" alt="코인·커트러리·다이아몬드 반지가 새겨진 광택 실버 메탈 Keyz 키캡" />
   </div>
 </section>
 

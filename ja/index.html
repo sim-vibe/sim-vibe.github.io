@@ -57,7 +57,7 @@
     "url": "https://keyz.dev/ja/",
     "downloadUrl": ["https://apps.apple.com/app/id6770513549", "https://play.google.com/store/apps/details?id=com.simvibe.keyz"],
     "image": "https://keyz.dev/og-image-ja.png",
-    "screenshot": "https://keyz.dev/og-image-ja.png",
+    "screenshot": ["https://keyz.dev/skin-love.webp", "https://keyz.dev/skin-aurora.webp", "https://keyz.dev/skin-silver.webp"],
     "applicationSubCategory": "Fidget & ASMR",
     "featureList": [
       "7種類のメカニカルキーボード・サウンドパック",
@@ -106,6 +106,20 @@
   }
   </script>
 
+  <!-- Demo video structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Keyz — カエルのキーキャップをタップ",
+    "description": "Keyzのプレビュー：カエルのキーキャップをタップすると鳴き声が鳴り、弾むような押下アニメーションが再生されます。",
+    "thumbnailUrl": "https://keyz.dev/keyz-demo-poster.webp",
+    "uploadDate": "2026-07-05",
+    "contentUrl": "https://keyz.dev/keyz-demo.mp4",
+    "duration": "PT6S"
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -118,6 +132,7 @@
   <div class="nav-links">
     <a href="#about">概要</a>
     <a href="#features">機能</a>
+    <a href="#skins">スキン</a>
     <a href="#faq">FAQ</a>
   </div>
   <div class="nav-dl-wrap">
@@ -174,6 +189,22 @@
 
 <div class="divider"></div>
 
+<section class="demo" id="demo">
+  <p class="eyebrow reveal">動きを見る</p>
+  <h2 class="section-title reveal">キーをタップ、<br>聞いてみて。</h2>
+  <div class="demo-video reveal">
+    <video id="demoVid" playsinline autoplay muted loop poster="/keyz-demo-poster.webp" width="600" height="1214" aria-label="タップするとカエルの鳴き声が鳴るKeyzのカエル・キーキャップ">
+      <source src="/keyz-demo.mp4" type="video/mp4" />
+    </video>
+    <button class="demo-sound" id="demoSound" aria-label="音を出す">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      音を出す
+    </button>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <section class="features" id="features">
   <p class="eyebrow reveal">機能</p>
   <h2 class="section-title reveal">いじって楽しい、<br>すべてがここに。</h2>
@@ -193,6 +224,18 @@
       <h3>シークレットスキン</h3>
       <p>タップを重ねて目標を達成すると、限定キーキャップスキンが解放。押すほどに新しいデザインが見つかります。</p>
     </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="skins" id="skins">
+  <p class="eyebrow reveal">スキン</p>
+  <h2 class="section-title reveal">見せたくなる<br>スキン。</h2>
+  <div class="skins-row">
+    <img class="shot reveal" src="/skin-love.webp" width="600" height="1304" loading="lazy" alt="ミントの半透明ゼリー・キーキャップでLOVEを表現したKeyzのスキン" />
+    <img class="shot reveal" src="/skin-aurora.webp" width="600" height="1304" loading="lazy" alt="3×3に並んだ虹色ホログラムのパステルなKeyzキーキャップ・スキン" />
+    <img class="shot reveal" src="/skin-silver.webp" width="600" height="1304" loading="lazy" alt="コイン・カトラリー・ダイヤの指輪が刻まれた光沢シルバーメタルのKeyzキーキャップ" />
   </div>
 </section>
 

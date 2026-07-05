@@ -66,7 +66,7 @@
     "url": "https://keyz.dev/",
     "downloadUrl": ["https://apps.apple.com/app/id6770513549", "https://play.google.com/store/apps/details?id=com.simvibe.keyz"],
     "image": "https://keyz.dev/og-image.png",
-    "screenshot": "https://keyz.dev/og-image.png",
+    "screenshot": ["https://keyz.dev/skin-love.webp", "https://keyz.dev/skin-aurora.webp", "https://keyz.dev/skin-silver.webp"],
     "applicationSubCategory": "Fidget & ASMR",
     "featureList": [
       "7 mechanical keyboard sound packs",
@@ -115,6 +115,20 @@
   }
   </script>
 
+  <!-- Demo video structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Keyz — tapping a frog keycap",
+    "description": "A quick look at Keyz: tapping a frog keycap plays a frog croak sound with a springy press animation.",
+    "thumbnailUrl": "https://keyz.dev/keyz-demo-poster.webp",
+    "uploadDate": "2026-07-05",
+    "contentUrl": "https://keyz.dev/keyz-demo.mp4",
+    "duration": "PT6S"
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -127,6 +141,7 @@
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#features">Features</a>
+    <a href="#skins">Skins</a>
     <a href="#faq">FAQ</a>
   </div>
   <div class="nav-dl-wrap">
@@ -183,6 +198,22 @@
 
 <div class="divider"></div>
 
+<section class="demo" id="demo">
+  <p class="eyebrow reveal">See it in action</p>
+  <h2 class="section-title reveal">Tap a key.<br>Hear it.</h2>
+  <div class="demo-video reveal">
+    <video id="demoVid" playsinline autoplay muted loop poster="/keyz-demo-poster.webp" width="600" height="1214" aria-label="A frog keycap in Keyz playing a croak sound when tapped">
+      <source src="/keyz-demo.mp4" type="video/mp4" />
+    </video>
+    <button class="demo-sound" id="demoSound" aria-label="Turn sound on">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      Tap for sound
+    </button>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <section class="features" id="features">
   <p class="eyebrow reveal">Features</p>
   <h2 class="section-title reveal">Everything you need<br>to fidget.</h2>
@@ -202,6 +233,18 @@
       <h3>Secret Skins</h3>
       <p>Unlock exclusive keycap skins by reaching tap milestones. Keep clicking to discover more.</p>
     </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="skins" id="skins">
+  <p class="eyebrow reveal">Skins</p>
+  <h2 class="section-title reveal">Skins worth<br>showing off.</h2>
+  <div class="skins-row">
+    <img class="shot reveal" src="/skin-love.webp" width="600" height="1304" loading="lazy" alt="Keyz translucent jelly keycap skin spelling LOVE in mint green" />
+    <img class="shot reveal" src="/skin-aurora.webp" width="600" height="1304" loading="lazy" alt="Keyz iridescent holographic pastel keycap skin shown in a 3-by-3 grid" />
+    <img class="shot reveal" src="/skin-silver.webp" width="600" height="1304" loading="lazy" alt="Keyz polished silver metal keycaps embossed with a coin, cutlery, and a diamond ring" />
   </div>
 </section>
 

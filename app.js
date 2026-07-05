@@ -1,3 +1,16 @@
+// Demo video: browsers block autoplay with sound, so start muted and let a
+// tap unmute it (the frog keycap's sound is the point).
+var demoVid = document.getElementById('demoVid');
+var demoSound = document.getElementById('demoSound');
+if (demoVid && demoSound) {
+  demoSound.addEventListener('click', function () {
+    demoVid.muted = false;
+    demoVid.currentTime = 0;
+    demoVid.play();
+    demoSound.classList.add('playing');
+  });
+}
+
 // Nav scroll tint (landing only)
 var nav = document.getElementById('nav');
 if (nav) addEventListener('scroll', function () { nav.classList.toggle('scrolled', scrollY > 10); }, { passive: true });
