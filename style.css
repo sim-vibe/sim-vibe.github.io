@@ -262,13 +262,38 @@ footer { border-top: 1px solid var(--border); padding: 40px; max-width: 980px; m
 .lang-menu a.active { font-weight: 600; }
 .lang-menu a.active::after { content: "✓"; font-size: 0.78rem; color: var(--muted); }
 
+/* ANCHOR SCROLLING (offset for fixed nav) */
+html { scroll-behavior: smooth; }
+#about, #features, #faq { scroll-margin-top: 72px; }
+
+/* NAV ANCHOR LINKS */
+.nav-links { display: flex; gap: 28px; }
+.nav-links a {
+  font-size: 0.85rem; color: var(--muted); text-decoration: none;
+  letter-spacing: -0.01em; transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* ABOUT + FAQ (share the features container) */
+.about, .faq { padding: 96px 40px; max-width: 980px; margin: 0 auto; }
+.about .section-title { margin-bottom: 28px; }
+.about-copy { max-width: 620px; font-size: 1.05rem; line-height: 1.75; color: #4a4a4f; }
+
+.faq-list { display: flex; flex-direction: column; gap: 2px; max-width: 760px; }
+.faq-item { background: var(--white); padding: 26px 32px; }
+.faq-item:first-child { border-radius: 20px 20px 0 0; }
+.faq-item:last-child  { border-radius: 0 0 20px 20px; }
+.faq-item h3 { font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 10px; }
+.faq-item p  { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
 /* REVEAL */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .reveal.show { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 720px) {
   #nav { padding: 0 20px; }
-  .features { padding: 72px 20px; }
+  .nav-links { display: none; }
+  .features, .about, .faq { padding: 72px 20px; }
   .feat-grid { grid-template-columns: 1fr; }
   .feat:first-child { border-radius: 20px 20px 0 0; }
   .feat:last-child  { border-radius: 0 0 20px 20px; }

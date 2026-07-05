@@ -34,6 +34,7 @@
   <meta property="og:image" content="https://keyz.dev/og-image-ko.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Keyz — K E Y Z 기계식 키보드 키캡을 보여주는 키캡 피젯 앱" />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:locale:alternate" content="ja_JP" />
@@ -56,8 +57,52 @@
     "url": "https://keyz.dev/ko/",
     "downloadUrl": ["https://apps.apple.com/app/id6770513549", "https://play.google.com/store/apps/details?id=com.simvibe.keyz"],
     "image": "https://keyz.dev/og-image-ko.png",
+    "screenshot": "https://keyz.dev/og-image-ko.png",
+    "applicationSubCategory": "Fidget & ASMR",
+    "featureList": [
+      "7가지 기계식 키보드 사운드 팩",
+      "키캡 라벨·이미지·스킨 커스터마이즈",
+      "언락 가능한 시크릿 키캡 스킨",
+      "탭할 때마다 햅틱 피드백",
+      "계정 없이 완전 오프라인 동작"
+    ],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
     "author": { "@type": "Organization", "name": "Keyz", "url": "https://keyz.dev/" }
+  }
+  </script>
+
+  <!-- FAQ structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "키캡 피젯 앱이 뭔가요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Keyz는 키캡 피젯 앱입니다. 주머니 속에 쏙 들어오는 기계식 키보드 키캡 세트로, 진짜 스위치의 경쾌한 클릭·클랙·톡 소리를 즐기려고 누르는 앱이에요. 타이핑도 규칙도 없이 그냥 키를 누르고 햅틱을 느끼며 소리를 들으면 됩니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "Keyz는 무료인가요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "네. Keyz는 App Store와 Google Play에서 무료로 내려받을 수 있고, 모든 사운드 팩은 무료로 제공됩니다. 선택적 인앱 구매로 광고 제거와 시크릿 키캡 스킨을 잠금 해제할 수 있습니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "Keyz는 오프라인에서도 되나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "네. Keyz는 기기 안에서 완전히 동작합니다. 계정이나 인터넷 연결이 필요 없습니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "Keyz에는 어떤 사운드와 커스터마이즈 기능이 있나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Keyz에는 7가지 기계식 키보드 사운드 팩이 있고, 키캡 라벨·이미지·스킨을 자유롭게 꾸밀 수 있습니다. 탭 마일스톤을 달성하면 시크릿 스킨도 잠금 해제됩니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "Keyz는 어떤 기기에서 쓸 수 있나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Keyz는 iOS 17 이상의 아이폰과 Android 12 이상의 안드로이드 기기에서 동작합니다." }
+      }
+    ]
   }
   </script>
 
@@ -70,6 +115,11 @@
 
 <nav id="nav">
   <div class="nav-logo">Keyz</div>
+  <div class="nav-links">
+    <a href="#about">소개</a>
+    <a href="#features">기능</a>
+    <a href="#faq">FAQ</a>
+  </div>
   <div class="nav-dl-wrap">
     <button class="nav-dl" aria-haspopup="true" aria-expanded="false">
       다운로드
@@ -116,14 +166,22 @@
 
 <div class="divider"></div>
 
-<section class="features">
+<section class="about" id="about">
+  <p class="eyebrow reveal">Keyz란?</p>
+  <h2 class="section-title reveal">주머니 속에 들어온<br>기계식 키보드.</h2>
+  <p class="about-copy reveal">Keyz는 키캡 피젯 앱입니다. 주머니 속에 쏙 들어오는 기계식 키보드 키캡 세트로, 언제든 눌러서 진짜 스위치의 경쾌한 클릭·클랙·톡 소리를 즐길 수 있어요. 타이핑도 규칙도 없습니다. 그냥 키를 누르고, 햅틱을 느끼고, 스위치 소리를 들으며, 라벨·이미지·스킨으로 나만의 세트를 만들면 됩니다. 피젯 토이이자 키보드 ASMR 머신, 그리고 작은 커스터마이즈 놀이터 — iOS와 Android에서 무료입니다.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="features" id="features">
   <p class="eyebrow reveal">기능</p>
   <h2 class="section-title reveal">만지작거리기 좋은<br>모든 기능.</h2>
   <div class="feat-grid">
     <div class="feat reveal">
       <div class="feat-icon">🎵</div>
       <h3>클릭 사운드</h3>
-      <p>6가지 기계식 키보드 사운드 팩. 경쾌한 클릭부터 부드러운 타건음까지, 취향에 맞는 소리를 찾아보세요.</p>
+      <p>7가지 기계식 키보드 사운드 팩. 경쾌한 클릭부터 부드러운 타건음까지, 취향에 맞는 소리를 찾아보세요.</p>
     </div>
     <div class="feat reveal">
       <div class="feat-icon">🎨</div>
@@ -134,6 +192,35 @@
       <div class="feat-icon">🔓</div>
       <h3>시크릿 스킨</h3>
       <p>탭을 거듭해 목표를 달성하면 한정 키캡 스킨이 열려요. 누를수록 새로운 디자인이 나타납니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="faq" id="faq">
+  <p class="eyebrow reveal">자주 묻는 질문</p>
+  <h2 class="section-title reveal">궁금한 점,<br>여기 있어요.</h2>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <h3>키캡 피젯 앱이 뭔가요?</h3>
+      <p>Keyz는 키캡 피젯 앱입니다. 주머니 속에 쏙 들어오는 기계식 키보드 키캡 세트로, 진짜 스위치의 경쾌한 클릭·클랙·톡 소리를 즐기려고 누르는 앱이에요. 타이핑도 규칙도 없이 그냥 키를 누르고 햅틱을 느끼며 소리를 들으면 됩니다.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Keyz는 무료인가요?</h3>
+      <p>네. Keyz는 App Store와 Google Play에서 무료로 내려받을 수 있고, 모든 사운드 팩은 무료로 제공됩니다. 선택적 인앱 구매로 광고 제거와 시크릿 키캡 스킨을 잠금 해제할 수 있습니다.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Keyz는 오프라인에서도 되나요?</h3>
+      <p>네. Keyz는 기기 안에서 완전히 동작합니다. 계정이나 인터넷 연결이 필요 없습니다.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Keyz에는 어떤 사운드와 커스터마이즈 기능이 있나요?</h3>
+      <p>Keyz에는 7가지 기계식 키보드 사운드 팩이 있고, 키캡 라벨·이미지·스킨을 자유롭게 꾸밀 수 있습니다. 탭 마일스톤을 달성하면 시크릿 스킨도 잠금 해제됩니다.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Keyz는 어떤 기기에서 쓸 수 있나요?</h3>
+      <p>Keyz는 iOS 17 이상의 아이폰과 Android 12 이상의 안드로이드 기기에서 동작합니다.</p>
     </div>
   </div>
 </section>

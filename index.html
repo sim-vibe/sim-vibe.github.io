@@ -43,6 +43,7 @@
   <meta property="og:image" content="https://keyz.dev/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Keyz — a keycap fidget app showing K E Y Z mechanical keyboard keycaps" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="ko_KR" />
   <meta property="og:locale:alternate" content="ja_JP" />
@@ -65,8 +66,52 @@
     "url": "https://keyz.dev/",
     "downloadUrl": ["https://apps.apple.com/app/id6770513549", "https://play.google.com/store/apps/details?id=com.simvibe.keyz"],
     "image": "https://keyz.dev/og-image.png",
+    "screenshot": "https://keyz.dev/og-image.png",
+    "applicationSubCategory": "Fidget & ASMR",
+    "featureList": [
+      "7 mechanical keyboard sound packs",
+      "Customizable keycap labels, images, and skins",
+      "Unlockable secret keycap skins",
+      "Haptic feedback on every tap",
+      "Works fully offline, no account needed"
+    ],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "author": { "@type": "Organization", "name": "Keyz", "url": "https://keyz.dev/" }
+  }
+  </script>
+
+  <!-- FAQ structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a keycap fidget app?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Keyz is a keycap fidget app — a pocket-sized set of mechanical keyboard keycaps you tap for the satisfying click, clack, and thock of real switches. There's no typing and no rules: just tap the keys, feel the haptics, and hear the sound." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Keyz free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Keyz is free to download on the App Store and Google Play, and all sound packs are included for free. An optional in-app purchase removes ads and unlocks the secret keycap skins." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Keyz work offline?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Keyz runs entirely on your device — no account and no internet connection required." }
+      },
+      {
+        "@type": "Question",
+        "name": "What sounds and customization does Keyz have?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Keyz includes 7 mechanical keyboard sound packs and lets you customize keycap labels, images, and skins. You can also unlock secret skins by reaching tap milestones." }
+      },
+      {
+        "@type": "Question",
+        "name": "What devices does Keyz support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Keyz works on iPhone running iOS 17 or later and Android devices running Android 12 or later." }
+      }
+    ]
   }
   </script>
 
@@ -79,6 +124,11 @@
 
 <nav id="nav">
   <div class="nav-logo">Keyz</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#faq">FAQ</a>
+  </div>
   <div class="nav-dl-wrap">
     <button class="nav-dl" aria-haspopup="true" aria-expanded="false">
       Download
@@ -125,14 +175,22 @@
 
 <div class="divider"></div>
 
-<section class="features">
+<section class="about" id="about">
+  <p class="eyebrow reveal">What is Keyz?</p>
+  <h2 class="section-title reveal">A mechanical keyboard<br>in your pocket.</h2>
+  <p class="about-copy reveal">Keyz is a keycap fidget app — a pocket-sized set of mechanical keyboard keycaps you can tap anytime for the satisfying click, clack, and thock of real switches. No typing, no rules: just tap the keys, feel the haptics, hear the switch sounds, and make the set your own with custom labels, images, and skins. It's a fidget toy, a keyboard ASMR machine, and a tiny customizable playground — free on iOS and Android.</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="features" id="features">
   <p class="eyebrow reveal">Features</p>
   <h2 class="section-title reveal">Everything you need<br>to fidget.</h2>
   <div class="feat-grid">
     <div class="feat reveal">
       <div class="feat-icon">🎵</div>
       <h3>Click Sounds</h3>
-      <p>6 mechanical keyboard sound packs. From tactile clacks to smooth linears — find your perfect click.</p>
+      <p>7 mechanical keyboard sound packs. From tactile clacks to smooth linears — find your perfect click.</p>
     </div>
     <div class="feat reveal">
       <div class="feat-icon">🎨</div>
@@ -143,6 +201,35 @@
       <div class="feat-icon">🔓</div>
       <h3>Secret Skins</h3>
       <p>Unlock exclusive keycap skins by reaching tap milestones. Keep clicking to discover more.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="faq" id="faq">
+  <p class="eyebrow reveal">FAQ</p>
+  <h2 class="section-title reveal">Questions,<br>answered.</h2>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <h3>What is a keycap fidget app?</h3>
+      <p>Keyz is a keycap fidget app — a pocket-sized set of mechanical keyboard keycaps you tap for the satisfying click, clack, and thock of real switches. There's no typing and no rules: just tap the keys, feel the haptics, and hear the sound.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Is Keyz free?</h3>
+      <p>Yes. Keyz is free to download on the App Store and Google Play, and all sound packs are included for free. An optional in-app purchase removes ads and unlocks the secret keycap skins.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Does Keyz work offline?</h3>
+      <p>Yes. Keyz runs entirely on your device — no account and no internet connection required.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>What sounds and customization does Keyz have?</h3>
+      <p>Keyz includes 7 mechanical keyboard sound packs and lets you customize keycap labels, images, and skins. You can also unlock secret skins by reaching tap milestones.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>What devices does Keyz support?</h3>
+      <p>Keyz works on iPhone running iOS 17 or later and Android devices running Android 12 or later.</p>
     </div>
   </div>
 </section>

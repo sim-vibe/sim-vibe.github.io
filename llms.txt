@@ -1,0 +1,20 @@
+# Keyz
+
+> Keyz is a keycap fidget app — a pocket-sized mechanical keyboard you tap for the satisfying click, clack, and thock of real keycaps. Free on iOS and Android.
+
+Keyz is a free mobile app (iPhone on iOS 17+, Android 12+) from the independent developer Keyz (Gwangseop Shim). There is no typing and no rules: you tap mechanical keyboard keycaps to hear switch sounds, feel haptics, and customize your own keycap set with labels, images, and skins. All 7 sound packs are free; an optional in-app purchase removes ads and unlocks the secret keycap skins. Everything runs on-device, offline, with no account required.
+
+## Apps
+- [Keyz on the App Store](https://apps.apple.com/app/id6770513549): iPhone keycap fidget app (iOS 17+)
+- [Keyz on Google Play](https://play.google.com/store/apps/details?id=com.simvibe.keyz): Android keycap fidget app (Android 12+)
+- [Token Usage for Claude](https://keyz.dev/token-meter.html): macOS menu bar app that shows Claude Code token usage in real time
+
+## Pages
+- [Home](https://keyz.dev/): overview, features, and FAQ
+- [Privacy Policy](https://keyz.dev/privacy.html): Keyz stores all data locally on your device
+- [Contact](https://keyz.dev/contact/): support@keyz.dev
+
+## Languages
+- English: https://keyz.dev/
+- Korean (한국어): https://keyz.dev/ko/
+- Japanese (日本語): https://keyz.dev/ja/
