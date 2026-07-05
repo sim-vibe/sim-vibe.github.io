@@ -8,6 +8,12 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.10), 0 12px 36px rgba(0,0,0,0.16);
 }
 
+/* Breathing room between the download button and the note below it —
+   matches Keyz, where the CTAs sit in .store-btns (margin-bottom:10px).
+   Scoped to the hero/download CTAs so the nav button is unaffected. */
+.tm-page section.hero > .hero-cta,
+.tm-page .download .dl-btn { margin-bottom: 10px; }
+
 /* Coming-soon pill — same shape as the CTA, but inert/muted */
 .cta-soon {
   display: inline-flex; align-items: center; gap: 9px;
