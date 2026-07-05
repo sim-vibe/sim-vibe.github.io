@@ -1,13 +1,45 @@
-// Demo video: browsers block autoplay with sound, so start muted and let a
-// tap unmute it (the frog keycap's sound is the point).
+// Demo video: starts muted (browsers block autoplay with sound). The button
+// toggles sound on/off so it never traps the user with noise.
 var demoVid = document.getElementById('demoVid');
 var demoSound = document.getElementById('demoSound');
 if (demoVid && demoSound) {
   demoSound.addEventListener('click', function () {
-    demoVid.muted = false;
-    demoVid.currentTime = 0;
-    demoVid.play();
-    demoSound.classList.add('playing');
+    demoVid.muted = !demoVid.muted;
+    if (!demoVid.muted) demoVid.play();
+    demoSound.classList.toggle('on', !demoVid.muted);
+    demoSound.setAttribute('aria-pressed', String(!demoVid.muted));
+  });
+}
+
+// Skins gallery: tap a thumbnail to view it large in a lightbox
+var lightbox = document.getElementById('lightbox');
+var lightboxImg = document.getElementById('lightboxImg');
+if (lightbox && lightboxImg) {
+  var openLightbox = function (img) {
+    lightboxImg.src = img.currentSrc || img.src;
+    lightboxImg.alt = img.alt || '';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  var closeLightbox = function () {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+  document.querySelectorAll('.skins-row .shot').forEach(function (img) {
+    img.setAttribute('role', 'button');
+    img.setAttribute('tabindex', '0');
+    img.addEventListener('click', function () { openLightbox(img); });
+    img.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(img); }
+    });
+  });
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox || e.target.classList.contains('lightbox-close')) closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
   });
 }
 

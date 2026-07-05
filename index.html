@@ -205,9 +205,15 @@
     <video id="demoVid" playsinline autoplay muted loop poster="/keyz-demo-poster.webp" width="600" height="1214" aria-label="A frog keycap in Keyz playing a croak sound when tapped">
       <source src="/keyz-demo.mp4" type="video/mp4" />
     </video>
-    <button class="demo-sound" id="demoSound" aria-label="Turn sound on">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
-      Tap for sound
+    <button class="demo-sound" id="demoSound" aria-pressed="false" aria-label="Toggle sound">
+      <span class="ds-off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+        Tap for sound
+      </span>
+      <span class="ds-on">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>
+        Mute
+      </span>
     </button>
   </div>
 </section>
@@ -330,6 +336,11 @@
     </div>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+</div>
 
 <script src="/app.js?v=2"></script>
 </body>
