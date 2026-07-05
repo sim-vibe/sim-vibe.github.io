@@ -48,8 +48,8 @@
 
 /* Non-affiliation / trademark note */
 .tm-legal {
-  max-width: 620px; margin: 36px auto 0; padding: 0 24px;
-  font-size: 0.72rem; color: #a8a39c; line-height: 1.7; text-align: center;
+  max-width: 560px; margin: 64px auto 0; padding: 0 24px;
+  font-size: 0.72rem; color: #a8a39c; line-height: 1.85; text-align: center;
 }
 
 @media (max-width: 720px) {
