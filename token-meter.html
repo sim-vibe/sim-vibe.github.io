@@ -33,6 +33,7 @@
   <meta property="og:image" content="https://keyz.dev/token-meter-og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Token Usage for Claude — a macOS menu bar app showing Claude Code 5-hour session and weekly token usage bars" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="ko_KR" />
   <meta property="og:locale:alternate" content="ja_JP" />
@@ -54,8 +55,52 @@
     "description": "A macOS menu bar app that shows your Claude Code token usage in real time — your 5-hour session and weekly limits, from the same data as Claude Code's own /usage.",
     "url": "https://keyz.dev/token-meter.html",
     "image": "https://keyz.dev/token-meter-icon.png",
+    "screenshot": "https://keyz.dev/token-meter-og.png",
+    "applicationSubCategory": "Developer Tools",
+    "featureList": [
+      "Live 5-hour session and weekly usage bars",
+      "Reads the same data as Claude Code's /usage command",
+      "Lives in your Mac menu bar",
+      "100% local — no account, no network, no tracking",
+      "Demo mode to preview with sample data"
+    ],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "author": { "@type": "Organization", "name": "Keyz", "url": "https://keyz.dev/" }
+  }
+  </script>
+
+  <!-- FAQ structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Token Usage for Claude?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Token Usage for Claude is a macOS menu bar app that shows your Claude Code token usage in real time — your 5-hour session and weekly limits — read from the same data as Claude Code's own /usage command." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Token Usage free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Token Usage for Claude is a free download on the Mac App Store." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need Claude Code to use it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Token Usage reads the same usage data as Claude Code's /usage command, so you need Claude Code installed and signed in. A built-in demo mode lets you preview the app with sample data." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data private?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Token Usage runs entirely on your Mac — no account, no network calls of its own, and no tracking. It only reads your local Claude Code usage data." }
+      },
+      {
+        "@type": "Question",
+        "name": "What macOS version do I need?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Token Usage requires macOS 13.0 (Ventura) or later." }
+      }
+    ]
   }
   </script>
 
@@ -69,6 +114,10 @@
 
 <nav id="nav">
   <a class="nav-logo" href="/" style="text-decoration:none;color:inherit;">Keyz</a>
+  <div class="nav-links">
+    <a href="#features">Why</a>
+    <a href="#faq">FAQ</a>
+  </div>
   <a class="hero-cta" style="padding:7px 16px;font-size:0.82rem;text-decoration:none;" href="https://apps.apple.com/app/id6773230249">Download</a>
 </nav>
 
@@ -98,7 +147,7 @@
 
 <div class="divider"></div>
 
-<section class="features">
+<section class="features" id="features">
   <p class="eyebrow reveal">Why Token Usage</p>
   <h2 class="section-title reveal">Always know<br>your limits.</h2>
   <div class="feat-grid">
@@ -116,6 +165,35 @@
       <div class="feat-icon">🔒</div>
       <h3>100% local</h3>
       <p>No account, no network, no tracking. Everything stays on your Mac.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="faq" id="faq">
+  <p class="eyebrow reveal">FAQ</p>
+  <h2 class="section-title reveal">Questions,<br>answered.</h2>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <h3>What is Token Usage for Claude?</h3>
+      <p>Token Usage for Claude is a macOS menu bar app that shows your Claude Code token usage in real time — your 5-hour session and weekly limits — read from the same data as Claude Code's own /usage command.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Is Token Usage free?</h3>
+      <p>Yes. Token Usage for Claude is a free download on the Mac App Store.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Do I need Claude Code to use it?</h3>
+      <p>Yes. Token Usage reads the same usage data as Claude Code's /usage command, so you need Claude Code installed and signed in. A built-in demo mode lets you preview the app with sample data.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Is my data private?</h3>
+      <p>Yes. Token Usage runs entirely on your Mac — no account, no network calls of its own, and no tracking. It only reads your local Claude Code usage data.</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>What macOS version do I need?</h3>
+      <p>Token Usage requires macOS 13.0 (Ventura) or later.</p>
     </div>
   </div>
 </section>

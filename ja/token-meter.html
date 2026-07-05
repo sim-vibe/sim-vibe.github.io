@@ -33,6 +33,7 @@
   <meta property="og:image" content="https://keyz.dev/token-meter-og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Token Usage for Claude — Claude Codeの5時間セッションと週間のトークン使用量を表示するmacOSメニューバーアプリ" />
   <meta property="og:locale" content="ja_JP" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:locale:alternate" content="ko_KR" />
@@ -54,8 +55,52 @@
     "description": "Claude Code のトークン使用量をリアルタイムで表示する macOS メニューバーアプリ。5時間セッションと週間の上限を、Claude Code 自身の /usage と同じデータで確認します。",
     "url": "https://keyz.dev/ja/token-meter.html",
     "image": "https://keyz.dev/token-meter-icon.png",
+    "screenshot": "https://keyz.dev/token-meter-og.png",
+    "applicationSubCategory": "Developer Tools",
+    "featureList": [
+      "5時間セッションと週間使用量のライブゲージ",
+      "Claude Codeの/usageと同じデータ",
+      "Macのメニューバーに常駐",
+      "100%ローカル — アカウント・ネットワーク・トラッキングなし",
+      "サンプルデータで試せるデモモード"
+    ],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
     "author": { "@type": "Organization", "name": "Keyz", "url": "https://keyz.dev/" }
+  }
+  </script>
+
+  <!-- FAQ structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Token Usage for Claudeとは何ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "Token Usage for Claudeは、Claude Codeのトークン使用量をメニューバーでリアルタイムに表示するmacOSアプリです。5時間セッションと週間の上限を、Claude Code自身の/usageコマンドと同じデータで確認できます。" }
+      },
+      {
+        "@type": "Question",
+        "name": "Token Usageは無料ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい。Token Usage for ClaudeはMac App Storeで無料でダウンロードできます。" }
+      },
+      {
+        "@type": "Question",
+        "name": "Claude Codeは必要ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい。Token UsageはClaude Codeの/usageと同じ使用量データを読み取るため、Claude Codeがインストールされ、サインインされている必要があります。内蔵のデモモードでサンプルデータを試せます。" }
+      },
+      {
+        "@type": "Question",
+        "name": "データのプライバシーは大丈夫ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい。Token UsageはMac内で完全に動作します。アカウントも、独自のネットワーク通信も、トラッキングもなく、ローカルのClaude Code使用量データのみを読み取ります。" }
+      },
+      {
+        "@type": "Question",
+        "name": "どのmacOSバージョンが必要ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "Token UsageはmacOS 13.0（Ventura）以降が必要です。" }
+      }
+    ]
   }
   </script>
 
@@ -69,6 +114,10 @@
 
 <nav id="nav">
   <a class="nav-logo" href="/ja/" style="text-decoration:none;color:inherit;">Keyz</a>
+  <div class="nav-links">
+    <a href="#features">特長</a>
+    <a href="#faq">FAQ</a>
+  </div>
   <a class="hero-cta" style="padding:7px 16px;font-size:0.82rem;text-decoration:none;" href="https://apps.apple.com/app/id6773230249">ダウンロード</a>
 </nav>
 
@@ -98,7 +147,7 @@
 
 <div class="divider"></div>
 
-<section class="features">
+<section class="features" id="features">
   <p class="eyebrow reveal">Token Usage の特長</p>
   <h2 class="section-title reveal">上限を、<br>いつもひと目で。</h2>
   <div class="feat-grid">
@@ -116,6 +165,35 @@
       <div class="feat-icon">🔒</div>
       <h3>100% ローカル</h3>
       <p>アカウントなし、通信なし、トラッキングなし。すべては Mac の中だけ。</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="faq" id="faq">
+  <p class="eyebrow reveal">よくある質問</p>
+  <h2 class="section-title reveal">気になること、<br>お答えします。</h2>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <h3>Token Usage for Claudeとは何ですか？</h3>
+      <p>Token Usage for Claudeは、Claude Codeのトークン使用量をメニューバーでリアルタイムに表示するmacOSアプリです。5時間セッションと週間の上限を、Claude Code自身の/usageコマンドと同じデータで確認できます。</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Token Usageは無料ですか？</h3>
+      <p>はい。Token Usage for ClaudeはMac App Storeで無料でダウンロードできます。</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>Claude Codeは必要ですか？</h3>
+      <p>はい。Token UsageはClaude Codeの/usageと同じ使用量データを読み取るため、Claude Codeがインストールされ、サインインされている必要があります。内蔵のデモモードでサンプルデータを試せます。</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>データのプライバシーは大丈夫ですか？</h3>
+      <p>はい。Token UsageはMac内で完全に動作します。アカウントも、独自のネットワーク通信も、トラッキングもなく、ローカルのClaude Code使用量データのみを読み取ります。</p>
+    </div>
+    <div class="faq-item reveal">
+      <h3>どのmacOSバージョンが必要ですか？</h3>
+      <p>Token UsageはmacOS 13.0（Ventura）以降が必要です。</p>
     </div>
   </div>
 </section>

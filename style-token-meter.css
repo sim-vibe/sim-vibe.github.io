@@ -65,6 +65,10 @@
 /* Belt-and-suspenders: keep any sub-pixel overflow from exposing the
    default white html background when dragged horizontally on mobile.
    Scoped to Token Meter pages so Keyz pages are untouched. */
+/* This stylesheet only loads on Token Usage pages, so it's safe to darken
+   the root element — keeps pinch-zoom-out from exposing a white html bg
+   beyond the dark body. */
+html { background: #07121d; }
 html:has(body.tm-page) { overflow-x: hidden; }
 
 .tm-page {
