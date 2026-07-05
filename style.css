@@ -266,8 +266,9 @@ footer { border-top: 1px solid var(--border); padding: 40px; max-width: 980px; m
 html { scroll-behavior: smooth; }
 #about, #features, #faq { scroll-margin-top: 72px; }
 
-/* NAV ANCHOR LINKS */
-.nav-links { display: flex; gap: 28px; }
+/* NAV ANCHOR LINKS (absolutely centered in the viewport, independent of
+   the logo/download widths on either side) */
+.nav-links { display: flex; gap: 28px; position: absolute; left: 50%; transform: translateX(-50%); }
 .nav-links a {
   font-size: 0.85rem; color: var(--muted); text-decoration: none;
   letter-spacing: -0.01em; transition: color 0.15s;
