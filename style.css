@@ -280,7 +280,9 @@ html { scroll-behavior: smooth; }
 .about .section-title { margin-bottom: 28px; }
 .about-copy { max-width: 620px; font-size: 1.05rem; line-height: 1.75; color: #4a4a4f; }
 
-.faq-list { display: flex; flex-direction: column; gap: 2px; max-width: 760px; }
+/* Heading stays left-aligned like every other section; only the card
+   column is centered in the container. */
+.faq-list { display: flex; flex-direction: column; gap: 2px; max-width: 760px; margin-left: auto; margin-right: auto; }
 .faq-item { background: var(--white); padding: 26px 32px; }
 .faq-item:first-child { border-radius: 20px 20px 0 0; }
 .faq-item:last-child  { border-radius: 0 0 20px 20px; }
