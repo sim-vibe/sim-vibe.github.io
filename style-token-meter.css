@@ -48,7 +48,7 @@
 
 /* Non-affiliation / trademark note */
 .tm-legal {
-  max-width: 620px; margin: 0 auto; padding: 0 24px;
+  max-width: 620px; margin: 0 auto 28px; padding: 0 24px;
   font-size: 0.72rem; color: #a8a39c; line-height: 1.7; text-align: center;
 }
 
