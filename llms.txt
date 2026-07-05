@@ -7,7 +7,7 @@ Keyz is a free mobile app (iPhone on iOS 17+, Android 12+) from the independent 
 ## Apps
 - [Keyz on the App Store](https://apps.apple.com/app/id6770513549): iPhone keycap fidget app (iOS 17+)
 - [Keyz on Google Play](https://play.google.com/store/apps/details?id=com.simvibe.keyz): Android keycap fidget app (Android 12+)
-- [Token Usage for Claude](https://keyz.dev/token-meter.html): macOS menu bar app that shows Claude Code token usage in real time
+- [Token Usage for Claude](https://keyz.dev/token-usage/): macOS menu bar app that shows Claude Code token usage in real time
 
 ## Pages
 - [Home](https://keyz.dev/): overview, features, and FAQ
